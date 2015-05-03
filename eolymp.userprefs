@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="iOS/eolymp.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/MainActivity.cs">
+    <Files>
+      <File FileName="eolymp/eolymp.cs" Line="54" Column="25" />
+      <File FileName="iOS/AppDelegate.cs" Line="24" Column="1" />
+      <File FileName="Droid/MainActivity.cs" Line="23" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
