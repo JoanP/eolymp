@@ -13,7 +13,7 @@ namespace eolymp
 			RaisedPropertyChangedExplicit (propertyName);
 		}
 			
-		void RaisePropertyChangedExplicit(string propertyName){
+		void RaisedPropertyChangedExplicit(string propertyName){
 			PropertyChangedEventHandler handler = this.PropertyChanged;
 			if (handler != null) {
 				var e = new PropertyChangedEventArgs (propertyName);

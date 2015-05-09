@@ -147,7 +147,7 @@ namespace eolymp
 		public void setIniciReal(TimeSpan ir){
 			this.iniciReal = ir;
 		}
-		public voic setHoraMeta(TimeSpan hm){
+		public void setHoraMeta(TimeSpan hm){
 			this.horaMeta = hm;
 		}
 		public void setRitme(TimeSpan r){

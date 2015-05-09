@@ -6,6 +6,7 @@ namespace eolymp
 {
 	public class App : Application
 	{
+		public static MasterDetailPage MasterDetailPage;
 		public App ()
 		{
 			// The root page of your application
@@ -20,14 +21,22 @@ namespace eolymp
 					}
 				}
 			};*/
-			MainPage = new RootPage ();
+			//MainPage = new RootPage ();
+			  MasterDetailPage = new MasterDetailPage {
+				Master = new menuPage (),
+				Detail = new NavigationPage (new LinkPage ("A")),
+			};
+			MainPage = MasterDetailPage;
 		}
-			
-		public class RootPage : MasterDetailPage {
+
+
+
+
+	/*public class RootPage : MasterDetailPage {
 			public RootPage () {
 				var menuPage = new MenuPage ();
 
-				menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
+				//menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
 
 				Master = menuPage;
 				Detail = new NavigationPage (new ContentPage (){
@@ -36,8 +45,8 @@ namespace eolymp
 						VerticalOptions = LayoutOptions.CenterAndExpand
 					}
 				});
-			}
-			void NavigateTo (MenuItem Menu) {
+			}*/
+			/*void NavigateTo (MenuItem Menu) {
 				Page displayPage = (Page)Activator.CreateInstance (Menu.TargetType);
 				Detail = new NavigationPage (displayPage);
 
@@ -45,8 +54,8 @@ namespace eolymp
 
 
 			}
-		}
-		public class MenuPage : ContentPage {
+		}*/
+		/*public class MenuPage : ContentPage {
 			public ListView Menu { get; set; }
 
 			public MenuPage (){
@@ -119,9 +128,9 @@ namespace eolymp
 					TargetType = typeof(ContentPage)
 					});
 				}
-			}
+			}*/
 
-				
+
 
 
 		protected override void OnStart ()

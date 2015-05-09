@@ -19,3 +19,4 @@
 /Users/gampi/Projects/eolymp/Droid/bin/Debug/Xamarin.Forms.Xaml.dll
 /Users/gampi/Projects/eolymp/Droid/bin/Debug/eolymp.dll
 /Users/gampi/Projects/eolymp/Droid/bin/Debug/eolymp.dll.mdb
+/Users/gampi/Projects/eolymp/Droid/obj/Debug/MonoAndroid,Version=v5.0.AssemblyAttribute.cs
