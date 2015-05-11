@@ -8,6 +8,9 @@ namespace eolymp
 		public LinkPage (string name)
 		{
 			Title = name;
+			/*var t = new ToolbarItem();
+			t.Icon = "settings.png";
+			ToolbarItems.Add (t);*/
 			Content = new StackLayout {
 				Children = {
 					new SubLink (name + ".1"),

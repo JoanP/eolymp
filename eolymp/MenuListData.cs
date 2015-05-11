@@ -10,27 +10,27 @@ namespace eolymp
 		{
 			this.Add(new MenuItem () {
 				Title = "INICIO",
-				IconSource = "contracts.png",
+				IconSource = "home24.png",
 				TargetType = typeof(ContentPage)
 			});
 			this.Add(new MenuItem () {
 				Title = "ACTIVIDAD",
-				IconSource = "Lead.png",
-				TargetType = typeof(ContentPage)
+				IconSource = "bar24.png",
+				TargetType = typeof(TabbedPage)
 			});
 			this.Add(new MenuItem () {
 				Title = "RETOS",
-				IconSource = "Accounts.png",
+				IconSource = "target21.png",
 				TargetType = typeof(ContentPage)
 			});
 			this.Add(new MenuItem () {
 				Title = "PREMIUM",
-				IconSource = "Accounts.png",
+				IconSource = "refresh24.png",
 				TargetType = typeof(ContentPage)
 			});
 			this.Add(new MenuItem () {
 				Title = "CONFIGURACIÓN",
-				IconSource = "Opportunity.png",
+				IconSource = "settings24.png",
 				TargetType = typeof(ContentPage)
 			});
 		}

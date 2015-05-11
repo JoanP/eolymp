@@ -2,7 +2,7 @@
 
 namespace eolymp
 {
-	public class running
+	public class running : MarcaEsportiva
 	{
 		private int dorsal;
 		private int posicio;

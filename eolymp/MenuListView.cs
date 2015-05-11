@@ -21,7 +21,8 @@ namespace eolymp
 				ItemTemplate = cell;
 				ItemTapped += (sender, e) => {
 					MenuItem tapped = SelectedItem as MenuItem;
-					App.MasterDetailPage.Detail = new NavigationPage (new LinkPage(tapped.Title));
+					if(tapped.Title =="ACTIVIDAD") {App.MasterDetailPage.Detail = new NavigationPage (new ActivitatsView());}
+					else {App.MasterDetailPage.Detail = new NavigationPage (new LinkPage(tapped.Title));}
 					App.MasterDetailPage.IsPresented = false;
 				};
 				

@@ -1,11 +1,9 @@
 ﻿<Properties StartupItem="iOS/eolymp.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/MenuPage.cs">
     <Files>
-      <File FileName="eolymp/eolymp.cs" Line="130" Column="6" />
-      <File FileName="eolymp/LinkPage.cs" Line="11" Column="1" />
-      <File FileName="eolymp/MainLink.cs" Line="12" Column="28" />
-      <File FileName="eolymp/MenuPage.cs" Line="18" Column="6" />
+      <File FileName="eolymp/eolymp.cs" Line="36" Column="1" />
+      <File FileName="eolymp/MenuPage.cs" Line="11" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -74,6 +74,12 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="packages.config" />
+    <None Include="Resources\bar24.png" />
+    <None Include="Resources\home24.png" />
+    <None Include="Resources\menu482.png" />
+    <None Include="Resources\refresh24.png" />
+    <None Include="Resources\settings24.png" />
+    <None Include="Resources\target21.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\layout\" />
@@ -84,6 +90,12 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\bar24.png" />
+    <AndroidResource Include="Resources\drawable\home24.png" />
+    <AndroidResource Include="Resources\drawable\refresh24.png" />
+    <AndroidResource Include="Resources\drawable\settings24.png" />
+    <AndroidResource Include="Resources\drawable\target21.png" />
+    <AndroidResource Include="Resources\drawable\menu55.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
