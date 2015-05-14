@@ -28,6 +28,8 @@ namespace eolymp
 
 		public running ()
 		{
+			id = -1;
+			//diaMesAny = new DateTime (2000,0,0);
 			dorsal = -1;
 			posicio = -1;
 			nom = "";

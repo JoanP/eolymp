@@ -1,13 +1,20 @@
 ﻿<Properties StartupItem="iOS/eolymp.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/MenuPage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/Views/ActivitatsView.cs">
     <Files>
-      <File FileName="eolymp/eolymp.cs" Line="36" Column="1" />
-      <File FileName="eolymp/MenuPage.cs" Line="11" Column="14" />
+      <File FileName="eolymp/Models/MarcaEsportiva.cs" Line="13" Column="1" />
+      <File FileName="eolymp/Models/running.cs" Line="53" Column="1" />
+      <File FileName="eolymp/ViewModels/ActivitatsViewModel.cs" Line="15" Column="1" />
+      <File FileName="eolymp/Views/ActivitatsView.cs" Line="29" Column="1" />
+      <File FileName="iOS/Main.cs" Line="17" Column="26" />
+      <File FileName="eolymp/MenuListData.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/gampi/Projects/github/eolymp/eolymp/ViewModels/ActivitatsViewModel.cs" line="11" column="1" />
+      <Breakpoint traceExpression="{this.marques}" file="/Users/gampi/Projects/github/eolymp/eolymp/ViewModels/ActivitatsViewModel.cs" line="12" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
