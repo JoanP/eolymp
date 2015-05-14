@@ -6,29 +6,24 @@ namespace eolymp
 {
 	public class ActivitatsViewModel : ViewModelBase
 	{
-		private listRunning marques;
+		private List<running> marques;
+
 		public ActivitatsViewModel ()
 		{
-			this.marques = new listRunning();
-
-
+			marques = new List<running> ();
+			var a = new running ();
+			var b = new running ();
+			var c = new running ();
+			a.id=1;
+			b.id = 2;
+			c.id = 3;
+			marques.Add (a);
+			marques.Add (b);
+			marques.Add (c);
 		}
-		/*public List<running> getMarques(){
-			return marques;
-		}*/
-		private class listRunning : List<string>{
 
-			public listRunning() {
-				var a = new running ();
-				var b = new running ();
-				var c = new running ();
-				a.setId (1);
-				b.setId (2);
-				c.setId (3);
-				/*this.Add (a);
-				this.Add (b);
-				this.Add (c);*/
-			}
+		public List<running> getMarques(){
+			return marques;
 		}
 	}
 }

@@ -17,7 +17,6 @@ namespace eolymp
 				var cell = new DataTemplate (typeof(ImageCell));
 				cell.SetBinding(TextCell.TextProperty, "Title");
 				cell.SetBinding(ImageCell.ImageSourceProperty, "IconSource");
-
 				ItemTemplate = cell;
 				ItemTapped += (sender, e) => {
 					MenuItem tapped = SelectedItem as MenuItem;

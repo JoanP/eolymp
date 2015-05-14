@@ -47,3 +47,4 @@
 /Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/refresh24.png
 /Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/settings24.png
 /Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/target21.png
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/menu55.png

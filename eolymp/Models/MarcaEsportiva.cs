@@ -1,19 +1,20 @@
 ﻿using System;
+using Xamarin.Forms;
 
 
 namespace eolymp
 {
-	public abstract class MarcaEsportiva
+	public abstract class MarcaEsportiva : BindableObject
 	{
-		protected int id;
-		//protected DateTime diaMesAny;
+		protected int _id;
+
+		public int id {
+			get { return _id; }
+			set{ _id = value; }
+		}
+		//protected TimeSpan diaMesAny;
 	
-		public void setId(int i){
-			id = i;
-		}
-		public int getId(){
-			return id;
-		}
+
 	}
 }
 
