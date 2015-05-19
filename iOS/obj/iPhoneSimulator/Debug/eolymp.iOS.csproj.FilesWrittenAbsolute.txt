@@ -67,3 +67,6 @@
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/settings24.png
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/target21.png
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/menu55.png
+/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/running.png
+/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/add.png
+/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/delete.png

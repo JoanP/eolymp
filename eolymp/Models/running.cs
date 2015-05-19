@@ -6,11 +6,11 @@ namespace eolymp
 	{
 		private int _dorsal;
 		private int _posicio;
+		private int _distancia;
 		private int _posicioCategoria;
 		private string _nom;
 		private string _primerCognom;
 		private string _segonCognom;
-		private string _sexe;
 		private string _categoria;
 		private string _club;
 		private TimeSpan _iniciCursa;
@@ -28,6 +28,10 @@ namespace eolymp
 			get{return _posicio; }
 			set{ _posicio = value; }
 		}
+		public int distancia {
+			get{return _distancia; }
+			set { _distancia = value; }
+		}
 		public TimeSpan tempsOficial {
 			get{return _tempsOficial; }
 			set { _tempsOficial = value; }
@@ -44,17 +48,21 @@ namespace eolymp
 			get{return _k10; }
 			set{ _k10 = value; }
 		}
+		public string nom {
+			get {return _nom; }
+			set { _nom = value; }
+		}
 
 		public running ()
 		{
 			id = -1000;
+			_nom = "Cursa del corte ingles";
 			//diaMesAny = new TimeSpan (2000,0,0);
 			_dorsal = -1;
 			_posicio = -1;
-			_nom = "";
+			_distancia = -11;
 			_primerCognom = "";
 			_segonCognom = "";
-			_sexe ="";
 			_categoria = "";
 			_posicioCategoria = -1;
 			_club = "";

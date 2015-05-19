@@ -10,28 +10,43 @@ namespace eolymp
 		public ActivitatsView ()
 		{
 			aVM = new ActivitatsViewModel ();
+			ListView l = new ListView (){ 
+				RowHeight = 70,
+				BackgroundColor = Color.Gray.WithLuminosity (0.8)
+			};
+			StackLayout sL = new StackLayout (){ Spacing = 20 };
+			StackLayout sl2 = new StackLayout () {
+				Orientation = StackOrientation.Horizontal,
+				HeightRequest = 20,
+			};
 			Title = "ACTIVIDAD";
-			ListView l = new ListView ();
-			StackLayout sL = new StackLayout();
-			StackLayout sl2 = new StackLayout ();
-			sl2.Orientation = StackOrientation.Horizontal;
-			sl2.BackgroundColor = Color.Gray.WithLuminosity(0.8);
-			sl2.HeightRequest = 100;
-			sL.Spacing = 20;
-			var picker = new Picker();
-			picker.Title = "Modalitat Esportiva";
-			picker.Items.Add ("Individual");
-			picker.Items.Add ("Col·lectiva");
-			picker.Items.Add ("Muntanya");
-			picker.Items.Add ("Totes");
-			Button button = new Button ();
-			button.Text = "Buscar!";
-			l.ItemsSource = aVM.getMarques ();
-			l.ItemTemplate = new DataTemplate(typeof(marcaCell));
+			var picker = new Picker () {
+				Title = "Esport",
+				Items = {"Running"},
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.Start,
+				BackgroundColor = Color.Gray.WithLuminosity (0.9),
+				WidthRequest = 100
+
+			};
+			picker.SelectedIndexChanged += (sender, e) => {
+				if (picker.SelectedIndex == 0) {
+					l.ItemsSource = aVM.getMarques ();
+					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
+				}
+			};
+
+			Button button = new Button () {
+				Image = "add.png",
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.EndAndExpand,
+			};
+
 			sl2.Children.Add(picker);
 			sl2.Children.Add(button);
+
 			sL.Children.Add(sl2);
-			sL.Children.Add(l);
+			sL.Children.Add (l);
 
 
 
@@ -51,45 +66,71 @@ namespace eolymp
 			Children.Add (a);
 			Children.Add (b);
 		}
-		private class marcaCell : ViewCell {
+		private class marcaCell : ViewCell{
 			public marcaCell(){
-				var posicioL = new Label {HorizontalOptions = LayoutOptions.Fill};
-				posicioL.SetBinding(Label.TextProperty,"posicio");
-
-				var tOficialL = new Label {HorizontalOptions = LayoutOptions.Fill};
-				tOficialL.SetBinding(Label.TextProperty,new Binding("tempsOficial", BindingMode.Default,new SpanConverter(), null));
-
-				var ritmeL = new Label{HorizontalOptions = LayoutOptions.Fill};
-				ritmeL.SetBinding(Label.TextProperty,new Binding("ritme", BindingMode.Default,new SpanConverter(), null));
-
-				var k59L = new Label{HorizontalOptions = LayoutOptions.Fill};
-				k59L.SetBinding(Label.TextProperty,new Binding("k59", BindingMode.Default,new SpanConverter(), null));
-
-				var k10L = new Label{HorizontalOptions = LayoutOptions.Fill};
-				k10L.SetBinding(Label.TextProperty,new Binding("k10", BindingMode.Default,new SpanConverter(), null));
-
-				var grid = new Grid();
-				grid.RowDefinitions = new RowDefinitionCollection {
-					new RowDefinition(),
-					new RowDefinition()
+				var i = new Image {
+					Aspect = Aspect.AspectFit,
+					HorizontalOptions = LayoutOptions.Center
 				};
-				grid.ColumnDefinitions = new ColumnDefinitionCollection {
-					new ColumnDefinition(),
-					new ColumnDefinition(),
-					new ColumnDefinition()
+				i.Source = ImageSource.FromFile("running.png");
+				
+				var nomL = new Label {
+					HorizontalOptions = LayoutOptions.Fill,
+					FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+					FontAttributes = FontAttributes.Bold
 				};
-				grid.Children.Add(tOficialL,0,0);
-				grid.Children.Add(ritmeL,0,1);
-				grid.Children.Add(k59L,1,0);
-				grid.Children.Add(k10L,1,1);
-				grid.Children.Add(posicioL,2,0);
+				nomL.SetBinding(Label.TextProperty, "nom");
 
-				View = grid;
+				var tOficialL = new Label {
+					HorizontalOptions = LayoutOptions.Fill,
+					FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label))
+				};
+				tOficialL.SetBinding(Label.TextProperty,new Binding("tempsOficial", BindingMode.Default,new tOficialConverter(), null));
+
+				var ritmeL = new Label{
+					HorizontalOptions = LayoutOptions.Fill,
+					FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label))
+				};
+				ritmeL.SetBinding(Label.TextProperty,new Binding("ritme", BindingMode.Default,new ritmeConverter(), null));
+
+				var distanciaL = new Label{
+					HorizontalOptions = LayoutOptions.Fill,
+					FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label))
+				
+				};
+				distanciaL.SetBinding(Label.TextProperty,new Binding("distancia", BindingMode.Default,new distanciaConverter(), null));
+
+				var sl = new StackLayout {
+					Orientation = StackOrientation.Horizontal,
+					Spacing = 20,
+				};
+				var sl2 = new StackLayout {
+					Spacing = 0,
+					HorizontalOptions = LayoutOptions.FillAndExpand,
+				};
+				var delete = new Button {
+					Image = "delete.png",
+					HorizontalOptions = LayoutOptions.FillAndExpand
+				};
+				delete.SetBinding(Button.ClassIdProperty,"id");
+
+				delete.Clicked += onButtonClicked;
+
+				sl2.Children.Add(nomL);
+				sl2.Children.Add(distanciaL);
+				sl2.Children.Add(tOficialL);
+				sl2.Children.Add(ritmeL);
+
+				sl.Children.Add(i);
+				sl.Children.Add(sl2);
+				sl.Children.Add(delete);
+
+				View = sl;
+				View.BackgroundColor = Color.White;
+
 			}
-
 		}
-
-		public class SpanConverter : IValueConverter
+		public class ritmeConverter : IValueConverter
 		{
 			object IValueConverter.ConvertBack (object value, Type targetType, object parameter, CultureInfo culture)
 			{
@@ -99,9 +140,48 @@ namespace eolymp
 			public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
 			{
 				TimeSpan span = (TimeSpan)value;
-				return span.ToString ();
+				return "Ritme: " + span.ToString ();
 			}
 		}
+		public class distanciaConverter : IValueConverter
+		{
+			object IValueConverter.ConvertBack (object value, Type targetType, object parameter, CultureInfo culture)
+			{
+				throw new NotImplementedException ();
+			}
+
+			public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
+			{
+				var dis = (int) value;
+				return "Distancia: " + dis.ToString();
+			}
+		}
+
+		public class tOficialConverter : IValueConverter
+		{
+			object IValueConverter.ConvertBack (object value, Type targetType, object parameter, CultureInfo culture)
+			{
+				throw new NotImplementedException ();
+			}
+
+			public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
+			{
+				TimeSpan span = (TimeSpan)value;
+				return "Temps: " + span.ToString ();
+			}
+		}
+		
+		/*private void onButtonClicked(Object sender, EventArgs ea){
+			var i = (Button)sender;
+			var l = aVM.getMarques ();
+			l.RemoveAll (a => a.id == i.Id);
+
+
+
+
+		}*/
 	}
 }
+
+
 

@@ -1,16 +1,18 @@
 ﻿using System;
 using Xamarin;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace eolymp
 {
 	public class ActivitatsViewModel : ViewModelBase
 	{
-		private List<running> marques;
+		private BindingList<running> marques;
 
 		public ActivitatsViewModel ()
 		{
-			marques = new List<running> ();
+			marques = new ObservableCollection<running> ();
 			var a = new running ();
 			var b = new running ();
 			var c = new running ();
@@ -22,7 +24,7 @@ namespace eolymp
 			marques.Add (c);
 		}
 
-		public List<running> getMarques(){
+		public ObservableCollection<running> getMarques(){
 			return marques;
 		}
 	}

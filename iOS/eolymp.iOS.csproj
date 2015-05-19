@@ -104,6 +104,9 @@
     <BundleResource Include="Resources\settings24.png" />
     <BundleResource Include="Resources\target21.png" />
     <BundleResource Include="Resources\menu55.png" />
+    <BundleResource Include="Resources\running.png" />
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
