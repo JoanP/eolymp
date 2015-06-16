@@ -9,6 +9,7 @@ namespace eolymp
 		{
 			BackgroundColor = Color.Transparent;
 			Text = name;
+			TextColor = Color.Blue;
 			Command = new Command (o => App.MasterDetailPage.Detail.Navigation.PushAsync(new LinkPage(name)));
 		}
 	}

@@ -77,6 +77,9 @@ namespace eolymp
 			_k10 = new TimeSpan(0,0,0);
 			_hk10 = new TimeSpan(0,0,0);
 		}
+		public running (int ID){
+			id = ID;
+		}
 
 
 	}

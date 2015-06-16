@@ -11,7 +11,8 @@ namespace eolymp
 		{
 			  MasterDetailPage = new MasterDetailPage {
 				Master = new menuPage (),
-				Detail = new NavigationPage (new LinkPage ("A"))
+				Detail = new NavigationPage (new LinkPage ("A")),
+
 			};
 			MainPage = MasterDetailPage;
 	

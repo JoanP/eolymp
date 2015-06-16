@@ -5,8 +5,9 @@ namespace eolymp
 {
 	public class MarcasView : ContentPage
 	{
-		public MarcasView ()
+		public MarcasView (string name)
 		{
+			Title = name;
 		}
 	}
 }

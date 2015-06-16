@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace eolymp
 {
@@ -10,6 +11,7 @@ namespace eolymp
 		public ActivitatsView ()
 		{
 			aVM = new ActivitatsViewModel ();
+			var lO = aVM.getMarques ();
 			ListView l = new ListView (){ 
 				RowHeight = 70,
 				BackgroundColor = Color.Gray.WithLuminosity (0.8)
@@ -26,20 +28,30 @@ namespace eolymp
 				VerticalOptions = LayoutOptions.Start,
 				HorizontalOptions = LayoutOptions.Start,
 				BackgroundColor = Color.Gray.WithLuminosity (0.9),
-				WidthRequest = 100
-
+				WidthRequest = 100,
 			};
 			picker.SelectedIndexChanged += (sender, e) => {
 				if (picker.SelectedIndex == 0) {
-					l.ItemsSource = aVM.getMarques ();
+					l.ItemsSource = lO;
 					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
 				}
 			};
-
+			marcaCell.Remove += item => {
+				//lO.Remove (new running (item));
+				//foreach(running r in lO){
+				lO.RemoveAt(0);
+				//}
+			};
 			Button button = new Button () {
 				Image = "add.png",
 				VerticalOptions = LayoutOptions.Start,
 				HorizontalOptions = LayoutOptions.EndAndExpand,
+			};
+			l.ItemTapped += (sender, e) => {
+				var id = (e.Item as running).id;
+				l.SelectedItem = null;
+				aVM.getInfoMarcas (id);
+
 			};
 
 			sl2.Children.Add(picker);
@@ -47,8 +59,7 @@ namespace eolymp
 
 			sL.Children.Add(sl2);
 			sL.Children.Add (l);
-
-
+			//marcaCell.Remove += item => l.Remove;
 
 			var a = new ContentPage {
 				Title = "MARCAS",
@@ -67,13 +78,14 @@ namespace eolymp
 			Children.Add (b);
 		}
 		private class marcaCell : ViewCell{
+			public static event Action<int> Remove = delegate {};
+
 			public marcaCell(){
 				var i = new Image {
 					Aspect = Aspect.AspectFit,
 					HorizontalOptions = LayoutOptions.Center
 				};
 				i.Source = ImageSource.FromFile("running.png");
-				
 				var nomL = new Label {
 					HorizontalOptions = LayoutOptions.Fill,
 					FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
@@ -96,7 +108,6 @@ namespace eolymp
 				var distanciaL = new Label{
 					HorizontalOptions = LayoutOptions.Fill,
 					FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label))
-				
 				};
 				distanciaL.SetBinding(Label.TextProperty,new Binding("distancia", BindingMode.Default,new distanciaConverter(), null));
 
@@ -108,13 +119,11 @@ namespace eolymp
 					Spacing = 0,
 					HorizontalOptions = LayoutOptions.FillAndExpand,
 				};
-				var delete = new Button {
+				/*var delete = new Button {
 					Image = "delete.png",
 					HorizontalOptions = LayoutOptions.FillAndExpand
 				};
-				delete.SetBinding(Button.ClassIdProperty,"id");
-
-				delete.Clicked += onButtonClicked;
+				delete.SetBinding(Button.ClassIdProperty,"id");*/
 
 				sl2.Children.Add(nomL);
 				sl2.Children.Add(distanciaL);
@@ -123,7 +132,15 @@ namespace eolymp
 
 				sl.Children.Add(i);
 				sl.Children.Add(sl2);
-				sl.Children.Add(delete);
+				//sl.Children.Add(delete);
+
+				var deleteAction = new MenuItem{Text = "Delete",IsDestructive = true};
+				deleteAction.SetBinding(MenuItem.CommandParameterProperty, new Binding("id"));
+				deleteAction.Clicked += (sender, e) => Remove((int)(sender as MenuItem).CommandParameter);
+				ContextActions.Add(deleteAction);
+
+
+
 
 				View = sl;
 				View.BackgroundColor = Color.White;
@@ -170,16 +187,6 @@ namespace eolymp
 				return "Temps: " + span.ToString ();
 			}
 		}
-		
-		/*private void onButtonClicked(Object sender, EventArgs ea){
-			var i = (Button)sender;
-			var l = aVM.getMarques ();
-			l.RemoveAll (a => a.id == i.Id);
-
-
-
-
-		}*/
 	}
 }
 

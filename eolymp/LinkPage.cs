@@ -12,6 +12,7 @@ namespace eolymp
 			t.Icon = "settings.png";
 			ToolbarItems.Add (t);*/
 			Content = new StackLayout {
+				BackgroundColor = Color.White,
 				Children = {
 					new SubLink (name + ".1"),
 					new SubLink (name + ".2"),

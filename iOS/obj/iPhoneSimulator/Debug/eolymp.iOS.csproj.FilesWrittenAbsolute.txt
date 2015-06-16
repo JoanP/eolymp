@@ -70,3 +70,4 @@
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/running.png
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/add.png
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/delete.png
+/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll

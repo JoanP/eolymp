@@ -8,7 +8,7 @@ namespace eolymp
 	{
 		public MenuListView ()
 		{
-				List<MenuItem> data = new MenuListData();
+				List<MenuPageItem> data = new MenuListData();
 				ItemsSource = data;
 				SelectedItem = data.Find (x => x.Title.Equals ("INICIO"));
 				VerticalOptions = LayoutOptions.FillAndExpand;
@@ -19,7 +19,7 @@ namespace eolymp
 				cell.SetBinding(ImageCell.ImageSourceProperty, "IconSource");
 				ItemTemplate = cell;
 				ItemTapped += (sender, e) => {
-					MenuItem tapped = SelectedItem as MenuItem;
+					MenuPageItem tapped = SelectedItem as MenuPageItem;
 					if(tapped.Title =="ACTIVIDAD") {App.MasterDetailPage.Detail = new NavigationPage (new ActivitatsView());}
 					else {App.MasterDetailPage.Detail = new NavigationPage (new LinkPage(tapped.Title));}
 					App.MasterDetailPage.IsPresented = false;

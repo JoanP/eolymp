@@ -26,6 +26,8 @@ namespace eolymp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::eolymp.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Forms.Platform.Resource.String.Hello = global::eolymp.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -45,25 +47,31 @@ namespace eolymp.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int bar24 = 2130837504;
+			public const int add = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int home24 = 2130837505;
+			public const int bar24 = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int icon = 2130837506;
+			public const int delete = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int menu55 = 2130837507;
+			public const int home24 = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int refresh24 = 2130837508;
+			public const int icon = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int settings24 = 2130837509;
+			public const int menu55 = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int target21 = 2130837510;
+			public const int refresh24 = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int settings24 = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int target21 = 2130837512;
 			
 			static Drawable()
 			{
@@ -71,6 +79,25 @@ namespace eolymp.Droid
 			}
 			
 			private Drawable()
+			{
+			}
+		}
+		
+		public partial class String
+		{
+			
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
+			
+			// aapt resource value: 0x7f030000
+			public const int Hello = 2130903040;
+			
+			static String()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private String()
 			{
 			}
 		}
