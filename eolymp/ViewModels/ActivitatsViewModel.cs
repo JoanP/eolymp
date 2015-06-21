@@ -34,6 +34,7 @@ namespace eolymp
 		public void getInfoMarcas(int id){
 			App.MasterDetailPage.Detail.Navigation.PushAsync (new MarcasView ("Running"+" "+(id.ToString())));
 		}
+
 	}
 }
 

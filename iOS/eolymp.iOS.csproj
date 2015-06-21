@@ -110,6 +110,12 @@
     <BundleResource Include="Resources\running.png" />
     <BundleResource Include="Resources\add.png" />
     <BundleResource Include="Resources\delete.png" />
+    <BundleResource Include="Resources\Competeix.png" />
+    <BundleResource Include="Resources\premium.png" />
+    <BundleResource Include="Resources\Reptes.png" />
+    <BundleResource Include="Resources\resultats.png" />
+    <BundleResource Include="Resources\Socialitza.png" />
+    <BundleResource Include="Resources\crono.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

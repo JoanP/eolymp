@@ -1,10 +1,22 @@
 ﻿<Properties StartupItem="iOS/eolymp.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/ViewModels/ActivitatsViewModel.cs">
-    <Files>
-      <File FileName="eolymp/ViewModels/ActivitatsViewModel.cs" Line="1" Column="1" />
-      <File FileName="eolymp/Views/ActivitatsView.cs" Line="119" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="eolymp" expanded="True">
+            <Node name="eolymp" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="ActivitatsView.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="eolymp.iOS" expanded="True">
+              <Node name="Resources" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

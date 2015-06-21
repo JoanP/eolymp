@@ -8,75 +8,32 @@ namespace eolymp
 	public class ActivitatsView : TabbedPage
 	{
 		private ActivitatsViewModel aVM;
+
+
 		public ActivitatsView ()
 		{
 			aVM = new ActivitatsViewModel ();
-			var lO = aVM.getMarques ();
-			ListView l = new ListView (){ 
-				RowHeight = 70,
-				BackgroundColor = Color.Gray.WithLuminosity (0.8)
-			};
-			StackLayout sL = new StackLayout (){ Spacing = 20 };
-			StackLayout sl2 = new StackLayout () {
-				Orientation = StackOrientation.Horizontal,
-				HeightRequest = 20,
-			};
-			Title = "ACTIVIDAD";
-			var picker = new Picker () {
-				Title = "Esport",
-				Items = {"Running"},
-				VerticalOptions = LayoutOptions.Start,
-				HorizontalOptions = LayoutOptions.Start,
-				BackgroundColor = Color.Gray.WithLuminosity (0.9),
-				WidthRequest = 100,
-			};
-			picker.SelectedIndexChanged += (sender, e) => {
-				if (picker.SelectedIndex == 0) {
-					l.ItemsSource = lO;
-					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
-				}
-			};
-			marcaCell.Remove += item => {
-				//lO.Remove (new running (item));
-				//foreach(running r in lO){
-				lO.RemoveAt(0);
-				//}
-			};
-			Button button = new Button () {
-				Image = "add.png",
-				VerticalOptions = LayoutOptions.Start,
-				HorizontalOptions = LayoutOptions.EndAndExpand,
-			};
-			l.ItemTapped += (sender, e) => {
-				var id = (e.Item as running).id;
-				l.SelectedItem = null;
-				aVM.getInfoMarcas (id);
-
-			};
-
-			sl2.Children.Add(picker);
-			sl2.Children.Add(button);
-
-			sL.Children.Add(sl2);
-			sL.Children.Add (l);
-			//marcaCell.Remove += item => l.Remove;
-
-			var a = new ContentPage {
-				Title = "MARCAS",
-				Content = sL
+			Title = "Competeix";
+			var resultats = new ContentPage {
+				Title = "Resultats",
+				Icon = "resultats.png",
+				Content = estructuraResultats()
 					
 			};
-			var b = new ContentPage {
-					Title = "ESTADÍSTICAS",
-					Content = new Label {
-						Text = " HOLA Estadisticas",
-						HorizontalOptions = LayoutOptions.CenterAndExpand,
-						VerticalOptions = LayoutOptions.CenterAndExpand,
-					},
+			var reptes = new ContentPage {
+					Title = "Reptes",
+					Icon = "target21.png"
 			};
-			Children.Add (a);
-			Children.Add (b);
+			var premium = new ContentPage {
+				Title = "Premium",
+				Icon = "premium.png"
+			};
+			Children.Add (resultats);
+			Children.Add (reptes);
+			Children.Add (premium);
+
 		}
+		
 		private class marcaCell : ViewCell{
 			public static event Action<int> Remove = delegate {};
 
@@ -186,6 +143,57 @@ namespace eolymp
 				TimeSpan span = (TimeSpan)value;
 				return "Temps: " + span.ToString ();
 			}
+		}
+		private StackLayout estructuraResultats() {
+
+			var lO = aVM.getMarques ();
+			ListView l = new ListView (){ 
+				RowHeight = 70,
+				BackgroundColor = Color.Gray.WithLuminosity (0.8)
+			};
+			StackLayout sL = new StackLayout (){ Spacing = 20 };
+			StackLayout sl2 = new StackLayout () {
+				Orientation = StackOrientation.Horizontal,
+				HeightRequest = 20,
+			};
+			var picker = new Picker () {
+				Title = "Esport",
+				Items = {"Running"},
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.Start,
+				BackgroundColor = Color.Gray.WithLuminosity (0.9),
+				WidthRequest = 100,
+			};
+			Button button = new Button () {
+				Image = "add.png",
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.EndAndExpand,
+			};
+			sl2.Children.Add(picker);
+			sl2.Children.Add(button);
+			sL.Children.Add(sl2);
+			sL.Children.Add (l);
+
+			l.ItemTapped += (sender, e) => {
+				var id = (e.Item as running).id;
+				l.SelectedItem = null;
+				aVM.getInfoMarcas (id);
+
+			};
+			picker.SelectedIndexChanged += (sender, e) => {
+				if (picker.SelectedIndex == 0) {
+					l.ItemsSource = lO;
+					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
+				}
+			};
+			marcaCell.Remove += item => {
+				//lO.Remove (new running (item));
+				//foreach(running r in lO){
+				lO.RemoveAt(0);
+				//}
+			};
+
+			return(sL);
 		}
 	}
 }
