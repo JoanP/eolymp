@@ -1,6 +1,6 @@
-# Version: 8.10.0.267 (6481535)
+# Version: 8.10.1.74 (6916d0e)
 # [first argument, ignore] # /Users/gampi/Projects/github/eolymp/iOS/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/8.10.0.267/bin/mtouch \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/8.10.1.74/bin/mtouch \
 	--cache \
 	/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
