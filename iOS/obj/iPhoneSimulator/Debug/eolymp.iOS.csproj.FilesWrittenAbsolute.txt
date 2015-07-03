@@ -77,3 +77,8 @@
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/resultats.png
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/Socialitza.png
 /Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/crono.png
+/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/SQLitePCL.raw.dll
+/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
+/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/SQLitePCL.ugly.dll
+/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/ICSharpCode.SharpZipLib.Portable.dll
+/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/Couchbase.Lite.dll

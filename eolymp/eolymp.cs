@@ -9,6 +9,7 @@ namespace eolymp
 		public static MasterDetailPage MasterDetailPage;
 		public App ()
 		{
+			DependencyService.Get<ICouchBase>().crearDb();
 			  MasterDetailPage = new MasterDetailPage {
 				Master = new menuPage (),
 				Detail = new NavigationPage (new LinkPage ("A")),

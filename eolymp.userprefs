@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="iOS/eolymp.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/Views/ActivitatsView.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/couchBase_IOS.cs">
     <Files>
-      <File FileName="eolymp/MenuListView.cs" Line="1" Column="1" />
-      <File FileName="eolymp/ViewModels/ActivitatsViewModel.cs" Line="1" Column="1" />
       <File FileName="eolymp/eolymp.cs" Line="1" Column="1" />
-      <File FileName="eolymp/Views/ActivitatsView.cs" Line="189" Column="20" />
+      <File FileName="eolymp/Services/ICouchBase.cs" Line="14" Column="8" />
+      <File FileName="iOS/couchBase_IOS.cs" Line="62" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

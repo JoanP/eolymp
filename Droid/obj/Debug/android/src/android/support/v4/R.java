@@ -11,16 +11,19 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static int bar24=0x7f020000;
-        public static int home24=0x7f020001;
-        public static int icon=0x7f020002;
-        public static int menu55=0x7f020003;
-        public static int refresh24=0x7f020004;
-        public static int settings24=0x7f020005;
-        public static int target21=0x7f020006;
+        public static int add=0x7f020000;
+        public static int bar24=0x7f020001;
+        public static int delete=0x7f020002;
+        public static int home24=0x7f020003;
+        public static int icon=0x7f020004;
+        public static int menu55=0x7f020005;
+        public static int refresh24=0x7f020006;
+        public static int settings24=0x7f020007;
+        public static int target21=0x7f020008;
     }
     public static final class string {
-        public static int ApplicationName=0x7f030001;
-        public static int Hello=0x7f030000;
+        public static int ApplicationName=0x7f030002;
+        public static int Hello=0x7f030001;
+        public static int library_name=0x7f030000;
     }
 }
