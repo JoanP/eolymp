@@ -9,7 +9,6 @@ namespace eolymp
 	{
 		private ActivitatsViewModel aVM;
 
-
 		public ActivitatsView ()
 		{
 			aVM = new ActivitatsViewModel ();
@@ -31,6 +30,26 @@ namespace eolymp
 			Children.Add (resultats);
 			Children.Add (reptes);
 			Children.Add (premium);
+			Children[0].ToolbarItems.Add(new ToolbarItem {
+				Text = "Add",
+				Command = new Command(async o => {
+					var item = await this.DisplayActionSheet("Afegeix una marca", "Cancel", null, "Individual", "Col·lectiva", "Muntanya");
+					if (item != "Cancel"){
+						//list.Add(item);
+						if(item == "Individual"){
+							((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new AfegirView());
+						}
+						/*else if(item == "Col·lectiva"){
+							((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new addPage("Col·lectiva"));
+
+						}
+						else{
+							((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new addPage("Muntanya"));
+
+						}*/
+					}
+				}),
+			});
 
 		}
 		
@@ -195,6 +214,77 @@ namespace eolymp
 
 			return(sL);
 		}
+		/*public class addPage : ContentPage
+		{
+			public addPage (string type)
+			{
+				Title = "Afegeix una marca";
+				BackgroundColor = Color.Black.WithLuminosity (0.5);
+				var lab = new Label { Text = "Sel·leciona:"};
+				var pick = new Picker () {
+					Title = "L'Esport",
+					Items = {"Running","Cycling"},
+					VerticalOptions = LayoutOptions.Start,
+					HorizontalOptions = LayoutOptions.Start,
+					BackgroundColor = Color.Gray.WithLuminosity (0.9),
+					WidthRequest = 100			
+
+				};
+				var aux = new StackLayout{
+					Orientation = StackOrientation.Horizontal,
+				};
+				aux.Children.Add(lab);
+				aux.Children.Add(pick);
+				var mainstack = new StackLayout();
+				mainstack.VerticalOptions = LayoutOptions.FillAndExpand;
+				mainstack.HorizontalOptions = LayoutOptions.CenterAndExpand;
+				mainstack.Children.Add(aux);
+				pick.SelectedIndexChanged += (sender, e) => {
+					if (pick.SelectedIndex == 0) {
+						setUpGrid("Running",mainstack);
+					}
+				};
+				Content = mainstack;
+
+
+			}
+			private void setUpGrid(string type,StackLayout mS){
+				var grid = new Grid ();
+				switch (type) {
+				case "Running":
+					if (mS.Children.Count > 1) {
+						mS.Children.RemoveAt (1);
+						mS.Children.RemoveAt (2);
+					}
+					grid.Children.Add (new Entry {Placeholder = "Nom Cursa"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Dorsal"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Posicio"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Distancia"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "PosicioCategoria"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Categoria"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Club"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Inici cursa(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Temps real(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Temps oficial(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Inici real(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Hora meta(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Ritme(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Km 5(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Hora km 5(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Km 10 l(HH:MM:SS)"}, 0, 0);
+					grid.Children.Add (new Entry {Placeholder = "Hora km 10(HH:MM:SS)"}, 0, 0);
+					mS.Children.Add (grid);
+
+					break;
+				}
+				var afageix = new Button{Text = "Afageix"};
+				afageix.Clicked += (object sender, EventArgs e) => {
+					grid.Children[0].ge
+				};
+				mS.Children.Add (afageix);
+			}
+
+		}*/
 	}
 }
 

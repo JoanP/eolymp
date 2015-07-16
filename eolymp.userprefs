@@ -2,13 +2,17 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="iOS/couchBase_IOS.cs">
     <Files>
+      <File FileName="eolymp/Views/ActivitatsView.cs" Line="40" Column="1" />
+      <File FileName="iOS/couchBase_IOS.cs" Line="21" Column="1" />
+      <File FileName="eolymp/ViewModels/AfegirViewModel.cs" Line="227" Column="1" />
       <File FileName="eolymp/eolymp.cs" Line="1" Column="1" />
-      <File FileName="eolymp/Services/ICouchBase.cs" Line="14" Column="8" />
-      <File FileName="iOS/couchBase_IOS.cs" Line="62" Column="22" />
+      <File FileName="eolymp/Services/ICouchBase.cs" Line="14" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/gampi/Projects/github/eolymp/iOS/couchBase_IOS.cs" line="21" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

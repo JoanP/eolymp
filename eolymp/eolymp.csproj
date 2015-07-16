@@ -43,6 +43,11 @@
     <Compile Include="ViewModels\ActivitatsViewModel.cs" />
     <Compile Include="Services\ICouchBase.cs" />
     <Compile Include="Views\MenuListView.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\MainView.cs" />
+    <Compile Include="MenuPageItem.cs" />
+    <Compile Include="Views\AfegirView.cs" />
+    <Compile Include="ViewModels\AfegirViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

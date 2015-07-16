@@ -37,12 +37,12 @@ namespace eolymp.Droid
 			}
 			return docId;
 		}
-		Dictionary<string,object> recuperarDoc (string docId){
+		public Dictionary<string,object> recuperarDoc (string docId){
 			Document doc = db.GetDocument (docId);
 			return new Dictionary<string, object> (doc.Properties);
 
 		}
-		void modificarDoc (string docId){
+		public void modificarDoc (string docId){
 			var doc = db.GetDocument (docId);
 			try {
 				// Update the document with more data
@@ -52,13 +52,13 @@ namespace eolymp.Droid
 				// Save to the Couchbase local Couchbase Lite DB
 				doc.PutProperties (updatedProps);
 				// display the updated document
-				Log.Debug ("Updated Doc Properties:");
+				//Log.Debug ("Updated Doc Properties:");
 			} catch (CouchbaseLiteException e) {
 				Log.Error ("Error updating properties in Couchbase Lite database", e.Message);
 			}
 		
 		}
-		void eliminarDoc(string docId){
+		public void eliminarDoc(string docId){
 			try {
 				var doc = db.GetDocument (docId);
 				doc.Delete ();

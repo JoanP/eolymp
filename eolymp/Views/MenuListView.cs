@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace eolymp
 {
-	public class MenuListView : ListView
+	/*public class MenuListView : ListView
 	{
 		public MenuListView ()
 		{
-				List<MenuPageItem> data = new MenuListData();
+				var data = new MenuListData();
 				ItemsSource = data;
 				SelectedItem = data.Find (x => x.Title.Equals ("INICIO"));
 				VerticalOptions = LayoutOptions.FillAndExpand;
@@ -29,49 +29,7 @@ namespace eolymp
 		}
 	}
 
-	public class MenuListData : List<MenuPageItem>
-	{
-		public MenuListData ()
-		{
-			this.Add(new MenuPageItem () {
-				Title = "Inici",
-				IconSource = "home24.png",
-				TargetType = typeof(ContentPage)
-			});
-			this.Add(new MenuPageItem () {
-				Title = "Entrena",
-				IconSource = "crono.png",
-				TargetType = typeof(ContentPage)
-			});
-			this.Add(new MenuPageItem () {
-				Title = "Competeix",
-				IconSource = "Competeix.png",
-				TargetType = typeof(TabbedPage)
-			});
-			this.Add(new MenuPageItem () {
-				Title = "Socialitza",
-				IconSource = "Socialitza.png",
-				TargetType = typeof(ContentPage)
-			});
-			this.Add(new MenuPageItem () {
-				Title = "Configuració",
-				IconSource = "settings24.png",
-				TargetType = typeof(ContentPage)
-			});
-		}
-	}
-	public class MenuPageItem
-	{
-		public string Title { get; set;}
-		public string IconSource { get; set;}
-		public Type TargetType { get; set;}
 
-		public MenuPageItem ()
-		{	
-			Title = "";
-			IconSource = "";
-		}
-	}
 	public class LinkPage : ContentPage
 	{
 		public LinkPage (string name)
@@ -79,7 +37,7 @@ namespace eolymp
 			Title = name;
 			/*var t = new ToolbarItem();
 			t.Icon = "settings.png";
-			ToolbarItems.Add (t);*/
+			ToolbarItems.Add (t);
 			Content = new StackLayout {
 				BackgroundColor = Color.White,
 				Children = {
@@ -99,7 +57,7 @@ namespace eolymp
 			TextColor = Color.Blue;
 			Command = new Command (o => App.MasterDetailPage.Detail.Navigation.PushAsync(new LinkPage(name)));
 		}
-	}
+	}*/
 
 }
 

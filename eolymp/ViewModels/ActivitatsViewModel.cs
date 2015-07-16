@@ -16,7 +16,7 @@ namespace eolymp
 		{
 			marques = new ObservableCollection<running> ();
 			//marques.CollectionChanged += marcaCollectionChanged;
-			var a = new running ();
+			/*var a = new running ();
 			var b = new running ();
 			var c = new running ();
 			a.id = 1;
@@ -24,7 +24,10 @@ namespace eolymp
 			c.id = 3;
 			marques.Add (a);
 			marques.Add (b);
-			marques.Add (c);
+			marques.Add (c);*/
+			DependencyService.Get<ICouchBase> ().recuperarDoc ("1");
+
+
 		}
 
 		public ObservableCollection<running> getMarques(){
@@ -32,7 +35,9 @@ namespace eolymp
 		}
 
 		public void getInfoMarcas(int id){
-			App.MasterDetailPage.Detail.Navigation.PushAsync (new MarcasView ("Running"+" "+(id.ToString())));
+			//App.MasterDetailPage.Detail.Navigation.PushAsync (new MarcasView ("Running"+" "+(id.ToString())));
+			((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new MarcasView ("Running"+" "+(id.ToString())));
+
 		}
 
 	}

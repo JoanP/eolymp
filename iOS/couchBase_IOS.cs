@@ -33,9 +33,15 @@ namespace eolymp.iOS
 			}
 			return docId;
 		}
-		public Dictionary<string,object> recuperarDoc (string docId){
-			Document doc = db.GetDocument (docId);
-			return new Dictionary<string, object> (doc.Properties);
+		public void /*Dictionary<string,object>*/ recuperarDoc (string docId){
+			/*Document doc = db.GetDocument (docId);
+			return new Dictionary<string, object> (doc.Properties);*/
+			var a = db.GetView ("running");
+			a.SetMap((document, emit) => {
+				emit("esportista", document["nameCursa"]);
+			},"1");
+			var b = a.TotalRows;
+
 
 		}
 		public void modificarDoc (string docId){

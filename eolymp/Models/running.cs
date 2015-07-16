@@ -9,10 +9,9 @@ namespace eolymp
 		private int _distancia;
 		private int _posicioCategoria;
 		private string _nom;
-		private string _primerCognom;
-		private string _segonCognom;
 		private string _categoria;
 		private string _club;
+		private string _modalitat;
 		private TimeSpan _iniciCursa;
 		private TimeSpan _tempsReal;
 		private TimeSpan _tempsOficial;
@@ -61,8 +60,7 @@ namespace eolymp
 			_dorsal = -1;
 			_posicio = -1;
 			_distancia = -11;
-			_primerCognom = "";
-			_segonCognom = "";
+			_modalitat = "";
 			_categoria = "";
 			_posicioCategoria = -1;
 			_club = "";
