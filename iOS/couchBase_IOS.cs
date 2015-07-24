@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Couchbase.Lite;
 using eolymp.iOS;
 using System.Collections.Generic;
+using System.Linq;
+using Couchbase.Lite.Util;
 
 [assembly: Dependency (typeof (couchBase_IOS))]
 
@@ -17,6 +19,32 @@ namespace eolymp.iOS
 		public void crearDb(){
 			try{
 				db = Manager.SharedInstance.GetDatabase ("iosdb");
+				/*var a = new Dictionary<string, object>{
+					{"nomCursa", "Cursa Peiro"},
+					{"dorsal", 9},
+					{"posicio",9},
+					{"distancia", 10},
+					{"posicioCategoria",9},
+					{"categoria", "Masculina"},
+					{"club", "Cap gros"},
+					{"iniciCursa","0000:0000"},
+					{"tempsReal", "0000:0000"},
+					{"tempsOficial", "0000:0000"},
+					{"iniciReal", "0000:0000"},
+					{"horaMeta", "0000:0000"},
+					{"ritme","0000:0000"},
+					{"km5","0000:0000"},
+					{"horaKm5","0000:0000"},
+					{"km10","0000:0000"},
+					{"horaKm10", "0000:0000"},
+					{"tipus", "running"},
+					{"esportista", "Peiro"}
+				};
+				var b = crearDoc(a);*/
+
+				var c = db.DocumentCount;
+				Console.WriteLine ("num: " + c);
+
 			}
 			catch (Exception e){
 				Console.WriteLine ("{0}: Error getting database: {1}","CouchbaseEventsApp", e.Message);
@@ -36,13 +64,43 @@ namespace eolymp.iOS
 		public void /*Dictionary<string,object>*/ recuperarDoc (string docId){
 			/*Document doc = db.GetDocument (docId);
 			return new Dictionary<string, object> (doc.Properties);*/
-			var a = db.GetView ("running");
-			a.SetMap((document, emit) => {
-				emit("esportista", document["nameCursa"]);
-			},"1");
+			Couchbase.Lite.View a = db.GetView ("running");
+			//a.SetMap((document, emit) => emit ((string)document ["nomCursa"], document), "1");
+			a.SetMap((document, emit) =>
+			{
+				if((string)document ["esportista"] == "Marta" && (string)document ["tipus"] == "running") {
+					emit ((string)document ["nomCursa"], document);
+				}
+			}, "1");
+			LogQueryResultsAsync (a);
+
 			var b = a.TotalRows;
 
+			/*var liveQuery = a.CreateQuery ().ToLiveQuery ();
+			liveQuery.Run ();
+			Console.WriteLine ("2");
+			var b = a.TotalRows;
+			Console.WriteLine (b);*/
 
+
+
+		}
+		async void LogQueryResultsAsync (Couchbase.Lite.View cbView)
+		{
+			var orderedQuery = cbView.CreateQuery ();
+			orderedQuery.Descending = true;
+			orderedQuery.Limit = 20;
+			try {
+				var results = await orderedQuery.RunAsync ();
+				results.ToList ().ForEach (result => {
+					Console.WriteLine ("2");
+					var doc = result.Document;
+					Console.WriteLine ("Found document with id: {0}, Esportista = {1}", 
+						result.DocumentId, doc.GetProperty<string>("esportista"));
+				});
+			} catch (CouchbaseLiteException e) {
+				Console.WriteLine ("Error querying view", e.Message);
+			}
 		}
 		public void modificarDoc (string docId){
 			var doc = db.GetDocument (docId);
