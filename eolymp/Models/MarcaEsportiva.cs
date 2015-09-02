@@ -6,9 +6,9 @@ namespace eolymp
 {
 	public abstract class MarcaEsportiva : BindableObject
 	{
-		protected int _id;
+		protected string _id;
 
-		public int id {
+		public string id {
 			get { return _id; }
 			set{ _id = value; }
 		}

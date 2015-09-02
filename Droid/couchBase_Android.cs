@@ -4,6 +4,8 @@ using eolymp.Droid;
 using Couchbase.Lite;
 using Android.Util;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 [assembly: Dependency (typeof(couchBase_Android))]
 
@@ -37,11 +39,58 @@ namespace eolymp.Droid
 			}
 			return docId;
 		}
-		public Dictionary<string,object> recuperarDoc (string docId){
-			Document doc = db.GetDocument (docId);
-			return new Dictionary<string, object> (doc.Properties);
-
+		public ObservableCollection<Dictionary<string, object>> recuperarDocs (string esport, string user){
+			Couchbase.Lite.View a = db.GetView ("running");
+			a.SetMap((document, emit) =>
+				{
+					if((string)document ["esportista"] == user && (string)document ["tipus"] == esport) {
+						emit ((string)document ["tipus"], document);
+					}
+				}, "1");
+			return LogQueryResultsAsync (a);
 		}
+
+		private async ObservableCollection<Dictionary<string, object>> LogQueryResultsAsync (Couchbase.Lite.View cbView)
+		{
+			var orderedQuery = cbView.CreateQuery ();
+			orderedQuery.Descending = true;
+			var llista = new ObservableCollection<Dictionary<string, object>> ();
+			try {
+				var results = await orderedQuery.RunAsync ();
+				results.ToList ().ForEach (result => {
+					var doc = result.Document;
+					var aux = new Dictionary<string, object>{
+						{"id", result.DocumentId},
+						{"nomCursa", doc.GetProperty<string>("nomCursa")},
+						{"dorsal", doc.GetProperty<string>("dorsal")},
+						{"posicio", doc.GetProperty<string>("posicio")},
+						{"distancia", doc.GetProperty<string>("distancia")},
+						{"posicioCategoria",doc.GetProperty<string>("posicioCategoria")},
+						{"categoria", doc.GetProperty<string>("categoria")},
+						{"club", doc.GetProperty<string>("club")},
+						{"iniciCursa",doc.GetProperty<string>("iniciCursa")},
+						{"tempsReal", doc.GetProperty<string>("tempsReal")},
+						{"tempsOficial", doc.GetProperty<string>("tempsOficial")},
+						{"iniciReal", doc.GetProperty<string>("iniciReal")},
+						{"horaMeta", doc.GetProperty<string>("horaMeta")},
+						{"ritme",doc.GetProperty<string>("ritme")},
+						{"km5",doc.GetProperty<string>("km5")},
+						{"horaKm5",doc.GetProperty<string>("horaKm5")},
+						{"km10",doc.GetProperty<string>("km10")},
+						{"horaKm10", doc.GetProperty<string>("horaKm10")},
+						{"tipus", doc.GetProperty<string>("tipus")},
+						{"esportista", doc.GetProperty<string>("esportista")}
+
+					};
+					llista.Add(aux);
+
+				});
+				return llista;
+			} catch (CouchbaseLiteException e) {
+				Console.WriteLine ("Error querying view", e.Message);
+			}
+		}
+
 		public void modificarDoc (string docId){
 			var doc = db.GetDocument (docId);
 			try {

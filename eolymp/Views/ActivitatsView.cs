@@ -54,7 +54,7 @@ namespace eolymp
 		}
 		
 		private class marcaCell : ViewCell{
-			public static event Action<int> Remove = delegate {};
+			public static event Action<object> Remove = delegate {};
 
 			public marcaCell(){
 				var i = new Image {
@@ -112,7 +112,7 @@ namespace eolymp
 
 				var deleteAction = new MenuItem{Text = "Delete",IsDestructive = true};
 				deleteAction.SetBinding(MenuItem.CommandParameterProperty, new Binding("id"));
-				deleteAction.Clicked += (sender, e) => Remove((int)(sender as MenuItem).CommandParameter);
+				deleteAction.Clicked += (sender, e) => Remove(sender);
 				ContextActions.Add(deleteAction);
 
 
@@ -164,8 +164,6 @@ namespace eolymp
 			}
 		}
 		private StackLayout estructuraResultats() {
-
-			var lO = aVM.getMarques ();
 			ListView l = new ListView (){ 
 				RowHeight = 70,
 				BackgroundColor = Color.Gray.WithLuminosity (0.8)
@@ -196,22 +194,19 @@ namespace eolymp
 			l.ItemTapped += (sender, e) => {
 				var id = (e.Item as running).id;
 				l.SelectedItem = null;
-				aVM.getInfoMarcas (id);
+				aVM.getInfoMarcas ();
 
 			};
 			picker.SelectedIndexChanged += (sender, e) => {
 				if (picker.SelectedIndex == 0) {
-					l.ItemsSource = lO;
+					l.ItemsSource = aVM.getRunningMarques();
 					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
 				}
 			};
-			marcaCell.Remove += item => {
-				//lO.Remove (new running (item));
-				//foreach(running r in lO){
-				lO.RemoveAt(0);
-				//}
-			};
-
+			/*marcaCell.Remove += item => {
+				var id = (item as MenuItem).CommandParameter;
+				l.
+			};*/
 			return(sL);
 		}
 		/*public class addPage : ContentPage

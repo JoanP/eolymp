@@ -19,9 +19,9 @@ namespace eolymp
 			}
 		}
 
-		private int _dorsal;
+		private string _dorsal;
 
-		public int dorsal {
+		public string dorsal {
 			get {
 				return _dorsal;
 			}
@@ -30,9 +30,9 @@ namespace eolymp
 			}
 		}
 
-		private int _posicio;
+		private string _posicio;
 
-		public int posicio {
+		public string posicio {
 			get {
 				return _posicio;
 			}
@@ -41,9 +41,9 @@ namespace eolymp
 			}
 		}
 
-		private int _distancia;
+		private string _distancia;
 
-		public int distancia {
+		public string distancia {
 			get {
 				return _distancia;
 			}
@@ -52,9 +52,9 @@ namespace eolymp
 			}
 		}
 
-		private int _posicioCategoria;
+		private string _posicioCategoria;
 
-		public int posicioCategoria {
+		public string posicioCategoria {
 			get {
 				return _posicioCategoria;
 			}
@@ -222,7 +222,7 @@ namespace eolymp
 						{"tipus", "running"},
 						{"esportista", "Didac"}
 					};
-					//DependencyService.Get<ICouchBase>().crearDoc(a);
+					DependencyService.Get<ICouchBase>().crearDoc(a);
 					Debug.WriteLine("saved");
 
 

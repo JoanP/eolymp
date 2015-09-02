@@ -5,6 +5,7 @@ using eolymp.iOS;
 using System.Collections.Generic;
 using System.Linq;
 using Couchbase.Lite.Util;
+using System.Collections.ObjectModel;
 
 [assembly: Dependency (typeof (couchBase_IOS))]
 
@@ -13,43 +14,45 @@ namespace eolymp.iOS
 	public class couchBase_IOS : ICouchBase
 	{
 		Database db;
+		ObservableCollection<Dictionary<string, string>> llista;
 		public couchBase_IOS ()
 		{
 		}
 		public void crearDb(){
 			try{
 				db = Manager.SharedInstance.GetDatabase ("iosdb");
+				llista = new ObservableCollection<Dictionary<string, string>>();
+				//db.Delete();
 				/*var a = new Dictionary<string, object>{
-					{"nomCursa", "Cursa Peiro"},
-					{"dorsal", 9},
-					{"posicio",9},
-					{"distancia", 10},
-					{"posicioCategoria",9},
+					/*{"nomCursa", "Cursa Peiro"},
+					{"dorsal", "9"},
+					{"posicio","9"},
+					{"distancia", "10"},
+					{"posicioCategoria","9"},
 					{"categoria", "Masculina"},
 					{"club", "Cap gros"},
-					{"iniciCursa","0000:0000"},
-					{"tempsReal", "0000:0000"},
-					{"tempsOficial", "0000:0000"},
-					{"iniciReal", "0000:0000"},
-					{"horaMeta", "0000:0000"},
-					{"ritme","0000:0000"},
-					{"km5","0000:0000"},
-					{"horaKm5","0000:0000"},
-					{"km10","0000:0000"},
-					{"horaKm10", "0000:0000"},
+					{"iniciCursa","00:00:00"},
+					{"tempsReal", "00:00:00"},
+					{"tempsOficial", "00:00:00"},
+					{"iniciReal", "00:00:00"},
+					{"horaMeta", "00:00:00"},
+					{"ritme","00:00:00"},
+					{"km5","00:00:00"},
+					{"horaKm5","00:00:00"},
+					{"km10","00:00:00"},
+					{"horaKm10", "00:00:00"},
 					{"tipus", "running"},
 					{"esportista", "Peiro"}
 				};
 				var b = crearDoc(a);*/
-
 				var c = db.DocumentCount;
 				Console.WriteLine ("num: " + c);
-
 			}
 			catch (Exception e){
 				Console.WriteLine ("{0}: Error getting database: {1}","CouchbaseEventsApp", e.Message);
 			}
 		}
+
 		public string crearDoc(Dictionary<string,object> d){
 			Document doc = db.CreateDocument ();
 			string docId = doc.Id;
@@ -61,47 +64,65 @@ namespace eolymp.iOS
 			}
 			return docId;
 		}
-		public void /*Dictionary<string,object>*/ recuperarDoc (string docId){
-			/*Document doc = db.GetDocument (docId);
-			return new Dictionary<string, object> (doc.Properties);*/
+
+		public ObservableCollection<Dictionary<string, string>> recuperarDocs (string esport, string user){
 			Couchbase.Lite.View a = db.GetView ("running");
-			//a.SetMap((document, emit) => emit ((string)document ["nomCursa"], document), "1");
 			a.SetMap((document, emit) =>
 			{
-				if((string)document ["esportista"] == "Marta" && (string)document ["tipus"] == "running") {
-					emit ((string)document ["nomCursa"], document);
+				if((string)document ["esportista"] == user && (string)document ["tipus"] == esport) {
+					emit ((string)document ["tipus"], document);
 				}
 			}, "1");
 			LogQueryResultsAsync (a);
-
-			var b = a.TotalRows;
-
-			/*var liveQuery = a.CreateQuery ().ToLiveQuery ();
-			liveQuery.Run ();
-			Console.WriteLine ("2");
-			var b = a.TotalRows;
-			Console.WriteLine (b);*/
-
-
-
+			//getData(a);
+			Console.WriteLine ("Num: "+llista.Count); 
+			return llista;
 		}
-		async void LogQueryResultsAsync (Couchbase.Lite.View cbView)
+
+		private /*async*/ void LogQueryResultsAsync (Couchbase.Lite.View cbView)
 		{
 			var orderedQuery = cbView.CreateQuery ();
 			orderedQuery.Descending = true;
-			orderedQuery.Limit = 20;
 			try {
-				var results = await orderedQuery.RunAsync ();
+				//var results = await orderedQuery.RunAsync ();
+				var results = orderedQuery.Run();
+				Console.WriteLine ("Found rows: {0}", 
+					results.Count);
 				results.ToList ().ForEach (result => {
-					Console.WriteLine ("2");
 					var doc = result.Document;
-					Console.WriteLine ("Found document with id: {0}, Esportista = {1}", 
-						result.DocumentId, doc.GetProperty<string>("esportista"));
+					Dictionary<string, string> aux = new Dictionary<string, string>{
+						{"id", result.DocumentId},
+						{"nomCursa", doc.GetProperty<string>("nomCursa")},
+						{"dorsal", doc.GetProperty<string>("dorsal")},
+						{"posicio", doc.GetProperty<string>("posicio")},
+						{"distancia", doc.GetProperty<string>("distancia")},
+						{"posicioCategoria",doc.GetProperty<string>("posicioCategoria")},
+						{"categoria", doc.GetProperty<string>("categoria")},
+						{"club", doc.GetProperty<string>("club")},
+						{"iniciCursa",doc.GetProperty<string>("iniciCursa")},
+						{"tempsReal", doc.GetProperty<string>("tempsReal")},
+						{"tempsOficial", doc.GetProperty<string>("tempsOficial")},
+						{"iniciReal", doc.GetProperty<string>("iniciReal")},
+						{"horaMeta", doc.GetProperty<string>("horaMeta")},
+						{"ritme",doc.GetProperty<string>("ritme")},
+						{"km5",doc.GetProperty<string>("km5")},
+						{"horaKm5",doc.GetProperty<string>("horaKm5")},
+						{"km10",doc.GetProperty<string>("km10")},
+						{"horaKm10", doc.GetProperty<string>("horaKm10")},
+						{"tipus", doc.GetProperty<string>("tipus")},
+						{"esportista", doc.GetProperty<string>("esportista")}
+
+					};
+					Console.WriteLine ("Found document with id: {0}", 
+						result.DocumentId);
+					llista.Add(aux);
+
 				});
 			} catch (CouchbaseLiteException e) {
 				Console.WriteLine ("Error querying view", e.Message);
 			}
 		}
+
 		public void modificarDoc (string docId){
 			var doc = db.GetDocument (docId);
 			try {
@@ -126,5 +147,23 @@ namespace eolymp.iOS
 				Console.WriteLine ("Cannot delete document", e.Message);
 			}
 		}
+
+		/*async void getData (Couchbase.Lite.View cbView)
+		{
+			var orderedQuery = cbView.CreateQuery ();
+			orderedQuery.Descending = true;
+			orderedQuery.Limit = 20;
+
+			try {
+				var results = await orderedQuery.RunAsync ();
+				results.ToList ().ForEach (result => {
+					var doc = result.Document;
+					Console.WriteLine ("Found document with id: {0}, Esportista = {1}", 
+						result.DocumentId, doc.GetProperty<string>("esportista"));
+				});
+			} catch (CouchbaseLiteException e) {
+				Console.WriteLine ("Error querying view", e.Message);
+			}
+		}*/
 	}
 }

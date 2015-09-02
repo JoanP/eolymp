@@ -23,6 +23,11 @@ namespace eolymp
 		private TimeSpan _k10;
 		private TimeSpan _hk10;
 
+		public int dorsal {
+			get {return _dorsal;}
+			set {_dorsal = value;}
+		}
+
 		public int posicio {
 			get{return _posicio; }
 			set{ _posicio = value; }
@@ -31,6 +36,17 @@ namespace eolymp
 			get{return _distancia; }
 			set { _distancia = value; }
 		}
+
+		public int posicioCategoria {
+			get {return _posicioCategoria;}
+			set {_posicioCategoria = value;}
+		}
+
+		public string categoria {
+			get {return _categoria;}
+			set {_categoria = value;}
+		}
+
 		public TimeSpan tempsOficial {
 			get{return _tempsOficial; }
 			set { _tempsOficial = value; }
@@ -52,9 +68,39 @@ namespace eolymp
 			set { _nom = value; }
 		}
 
+		public string club {
+			get {return _club;}
+			set {_club = value;}
+		}
+
+		public TimeSpan iniciCursa {
+			get {return _iniciCursa;}
+			set {_iniciCursa = value;}
+		}
+
+		public TimeSpan tempsReal {
+			get {return _tempsReal;}
+			set {_tempsReal = value;}
+		}
+
+		public TimeSpan iniciReal {
+			get {return _iniciReal;}
+			set {_iniciReal = value;}
+		}
+
+		public TimeSpan horaMeta {
+			get {return _horaMeta;}
+			set {_horaMeta = value;}
+		}
+
+		public string modalitat {
+			get {return _modalitat;}
+			set {_modalitat = value;}
+		}
+
 		public running ()
 		{
-			id = -1000;
+			id = "";
 			_nom = "Cursa del corte ingles";
 			//diaMesAny = new TimeSpan (2000,0,0);
 			_dorsal = -1;
@@ -75,7 +121,7 @@ namespace eolymp
 			_k10 = new TimeSpan(0,0,0);
 			_hk10 = new TimeSpan(0,0,0);
 		}
-		public running (int ID){
+		public running (string ID){
 			id = ID;
 		}
 
