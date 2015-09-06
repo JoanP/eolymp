@@ -58,7 +58,7 @@ namespace eolymp
 			afageix.SetBinding (Button.CommandProperty, "Save");
 			afageix.Clicked += (sender, e) => {
 				DisplayAlert ("Guardada!", "La vostre marca ha estat guardada satisfactoriament", "D'acord");
-				((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PopAsync();
+				var pages = ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PopAsync();
 			};
 
 

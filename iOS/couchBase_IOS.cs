@@ -14,17 +14,17 @@ namespace eolymp.iOS
 	public class couchBase_IOS : ICouchBase
 	{
 		Database db;
-		ObservableCollection<Dictionary<string, string>> llista;
+		//ObservableCollection<Dictionary<string, string>> llista;
 		public couchBase_IOS ()
 		{
 		}
 		public void crearDb(){
 			try{
 				db = Manager.SharedInstance.GetDatabase ("iosdb");
-				llista = new ObservableCollection<Dictionary<string, string>>();
+				//llista = new ObservableCollection<Dictionary<string, string>>();
 				//db.Delete();
-				/*var a = new Dictionary<string, object>{
-					/*{"nomCursa", "Cursa Peiro"},
+				var a = new Dictionary<string, object>{
+					{"nomCursa", "Cursa Peiro"},
 					{"dorsal", "9"},
 					{"posicio","9"},
 					{"distancia", "10"},
@@ -42,9 +42,9 @@ namespace eolymp.iOS
 					{"km10","00:00:00"},
 					{"horaKm10", "00:00:00"},
 					{"tipus", "running"},
-					{"esportista", "Peiro"}
+					{"esportista", "Didac"}
 				};
-				var b = crearDoc(a);*/
+				var b = crearDoc(a);
 				var c = db.DocumentCount;
 				Console.WriteLine ("num: " + c);
 			}
@@ -74,15 +74,14 @@ namespace eolymp.iOS
 				}
 			}, "1");
 			LogQueryResultsAsync (a);
-			//getData(a);
-			Console.WriteLine ("Num: "+llista.Count); 
-			return llista;
+			return LogQueryResultsAsync (a);
 		}
 
-		private /*async*/ void LogQueryResultsAsync (Couchbase.Lite.View cbView)
+		private /*async*/ ObservableCollection<Dictionary<string, string>> LogQueryResultsAsync (Couchbase.Lite.View cbView)
 		{
 			var orderedQuery = cbView.CreateQuery ();
 			orderedQuery.Descending = true;
+			var llista = new ObservableCollection<Dictionary<string, string>>();
 			try {
 				//var results = await orderedQuery.RunAsync ();
 				var results = orderedQuery.Run();
@@ -115,12 +114,19 @@ namespace eolymp.iOS
 					};
 					Console.WriteLine ("Found document with id: {0}", 
 						result.DocumentId);
+					var c = db.DocumentCount;
+					Console.WriteLine ("num DESPUES DE QUERY: " + c);
 					llista.Add(aux);
 
+
 				});
+				cbView.DeleteIndex ();
+				Console.WriteLine ("Num en la query: "+llista.Count);
+
 			} catch (CouchbaseLiteException e) {
 				Console.WriteLine ("Error querying view", e.Message);
 			}
+			return llista;
 		}
 
 		public void modificarDoc (string docId){
@@ -143,6 +149,8 @@ namespace eolymp.iOS
 			try {
 				var doc = db.GetDocument (docId);
 				doc.Delete ();
+				var c = db.DocumentCount;
+				Console.WriteLine ("num: " + c);
 			} catch (CouchbaseLiteException e) {
 				Console.WriteLine ("Cannot delete document", e.Message);
 			}

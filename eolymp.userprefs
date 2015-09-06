@@ -1,12 +1,6 @@
 ﻿<Properties StartupItem="iOS/eolymp.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/Views/ActivitatsView.cs">
-    <Files>
-      <File FileName="iOS/couchBase_IOS.cs" Line="26" Column="7" />
-      <File FileName="eolymp/ViewModels/ActivitatsViewModel.cs" Line="45" Column="57" />
-      <File FileName="eolymp/Views/ActivitatsView.cs" Line="210" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

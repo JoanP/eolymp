@@ -41,7 +41,7 @@ namespace eolymp
 		}
 		public ObservableCollection<running> getRunningMarques(){
 			var aux = new ObservableCollection<running> ();
-			var _marques = DependencyService.Get<ICouchBase> ().recuperarDocs ("running","Peiro");
+			var _marques = DependencyService.Get<ICouchBase> ().recuperarDocs ("running","Didac");
 			foreach(Dictionary<string,string> marca in _marques){
 				var r = new running ();
 				foreach (KeyValuePair<string, string> kv in marca) {
@@ -109,6 +109,16 @@ namespace eolymp
 			var ts = new TimeSpan(int.Parse(times[0]),int.Parse(times[1]),int.Parse(times[2]));
 			return ts;
 		}
+		public void deleteMarcaDB(string id){
+			DependencyService.Get<ICouchBase> ().eliminarDoc(id);
+		}
+		/*public ObservableCollection<running> deleteMarca(string Id){
+			foreach(running marca in marques)
+			{
+				if(marca.id == Id)marques.Remove(marca);
+			}
+			return marques;
+		}*/
 
 	}
 }

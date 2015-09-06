@@ -50,13 +50,13 @@ namespace eolymp.Droid
 			return LogQueryResultsAsync (a);
 		}
 
-		private async ObservableCollection<Dictionary<string, object>> LogQueryResultsAsync (Couchbase.Lite.View cbView)
+		private /*async*/ ObservableCollection<Dictionary<string, object>> LogQueryResultsAsync (Couchbase.Lite.View cbView)
 		{
 			var orderedQuery = cbView.CreateQuery ();
 			orderedQuery.Descending = true;
 			var llista = new ObservableCollection<Dictionary<string, object>> ();
 			try {
-				var results = await orderedQuery.RunAsync ();
+				var results = /*await*/ orderedQuery.RunAsync ();
 				results.ToList ().ForEach (result => {
 					var doc = result.Document;
 					var aux = new Dictionary<string, object>{

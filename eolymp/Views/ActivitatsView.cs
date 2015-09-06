@@ -8,6 +8,7 @@ namespace eolymp
 	public class ActivitatsView : TabbedPage
 	{
 		private ActivitatsViewModel aVM;
+		Picker picker;
 
 		public ActivitatsView ()
 		{
@@ -37,6 +38,7 @@ namespace eolymp
 					if (item != "Cancel"){
 						//list.Add(item);
 						if(item == "Individual"){
+							picker.SelectedIndex = -1;
 							((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new AfegirView());
 						}
 						/*else if(item == "Col·lectiva"){
@@ -52,7 +54,7 @@ namespace eolymp
 			});
 
 		}
-		
+			
 		private class marcaCell : ViewCell{
 			public static event Action<object> Remove = delegate {};
 
@@ -173,7 +175,7 @@ namespace eolymp
 				Orientation = StackOrientation.Horizontal,
 				HeightRequest = 20,
 			};
-			var picker = new Picker () {
+				picker = new Picker () {
 				Title = "Esport",
 				Items = {"Running"},
 				VerticalOptions = LayoutOptions.Start,
@@ -181,6 +183,7 @@ namespace eolymp
 				BackgroundColor = Color.Gray.WithLuminosity (0.9),
 				WidthRequest = 100,
 			};
+
 			Button button = new Button () {
 				Image = "add.png",
 				VerticalOptions = LayoutOptions.Start,
@@ -198,15 +201,21 @@ namespace eolymp
 
 			};
 			picker.SelectedIndexChanged += (sender, e) => {
+				if(picker.SelectedIndex == -1){
+					l.ItemsSource = null;
+				}
 				if (picker.SelectedIndex == 0) {
 					l.ItemsSource = aVM.getRunningMarques();
 					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
 				}
 			};
-			/*marcaCell.Remove += item => {
+			marcaCell.Remove += item => {
 				var id = (item as MenuItem).CommandParameter;
-				l.
-			};*/
+				string id2 = id.ToString();
+				aVM.deleteMarcaDB(id2);
+				l.ItemsSource = aVM.getRunningMarques();
+
+			};
 			return(sL);
 		}
 		/*public class addPage : ContentPage
