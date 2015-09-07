@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using System.Globalization;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace eolymp
 {
@@ -57,7 +58,6 @@ namespace eolymp
 			
 		private class marcaCell : ViewCell{
 			public static event Action<object> Remove = delegate {};
-
 			public marcaCell(){
 				var i = new Image {
 					Aspect = Aspect.AspectFit,
@@ -173,7 +173,8 @@ namespace eolymp
 			StackLayout sL = new StackLayout (){ Spacing = 20 };
 			StackLayout sl2 = new StackLayout () {
 				Orientation = StackOrientation.Horizontal,
-				HeightRequest = 20,
+				HeightRequest = 40,
+				BackgroundColor = Color.White
 			};
 				picker = new Picker () {
 				Title = "Esport",
@@ -183,21 +184,36 @@ namespace eolymp
 				BackgroundColor = Color.Gray.WithLuminosity (0.9),
 				WidthRequest = 100,
 			};
-
-			Button button = new Button () {
-				Image = "add.png",
-				VerticalOptions = LayoutOptions.Start,
-				HorizontalOptions = LayoutOptions.EndAndExpand,
-			};
+				
 			sl2.Children.Add(picker);
-			sl2.Children.Add(button);
 			sL.Children.Add(sl2);
 			sL.Children.Add (l);
-
+			sL.Spacing = 5;
+			sL.BackgroundColor = Color.Gray.WithLuminosity (0.8);
+				
 			l.ItemTapped += (sender, e) => {
 				var id = (e.Item as running).id;
+				Dictionary<string,object> aux = new Dictionary<string,object>();
+				aux.Add("nom",(e.Item as running).nom);
+				aux.Add("club",(e.Item as running).club);
+				aux.Add("categoria",(e.Item as running).categoria);
+				aux.Add("distancia",(e.Item as running).distancia);
+				aux.Add("dorsal",(e.Item as running).dorsal);
+				aux.Add("horaMeta",(e.Item as running).horaMeta);
+				aux.Add("iniciCursa",(e.Item as running).iniciCursa);
+				aux.Add("iniciReal",(e.Item as running).iniciReal);
+				aux.Add("k10",(e.Item as running).k10);
+				aux.Add("k59",(e.Item as running).k59);
+				aux.Add("modalitat",(e.Item as running).modalitat);
+				aux.Add("posicio",(e.Item as running).posicio);
+				aux.Add("posicioCategoria",(e.Item as running).posicioCategoria);
+				aux.Add("ritme",(e.Item as running).ritme);
+				aux.Add("tempsOficial",(e.Item as running).tempsOficial);
+				aux.Add("tempsReal",(e.Item as running).tempsReal);
+				aux.Add("h10",(e.Item as running).h10);
+				aux.Add("h59",(e.Item as running).h59);			
 				l.SelectedItem = null;
-				aVM.getInfoMarcas ();
+				aVM.getInfoMarcas (aux);
 
 			};
 			picker.SelectedIndexChanged += (sender, e) => {

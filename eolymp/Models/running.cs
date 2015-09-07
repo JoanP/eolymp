@@ -63,6 +63,14 @@ namespace eolymp
 			get{return _k10; }
 			set{ _k10 = value; }
 		}
+		public TimeSpan h59 {
+			get {return _hk59; }
+			set{ _hk59 = value; }
+		}
+		public TimeSpan h10 {
+			get{return _hk10; }
+			set{ _hk10 = value; }
+		}
 		public string nom {
 			get {return _nom; }
 			set { _nom = value; }

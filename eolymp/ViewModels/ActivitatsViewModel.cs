@@ -34,9 +34,9 @@ namespace eolymp
 			return marques;
 		}
 
-		public void getInfoMarcas(){
+		public void getInfoMarcas(Dictionary<string,object> info){
 			//App.MasterDetailPage.Detail.Navigation.PushAsync (new MarcasView ("Running"+" "+(id.ToString())));
-			((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new MarcasView ("Running"));
+			((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new MarcasView ("Running",info));
 
 		}
 		public ObservableCollection<running> getRunningMarques(){
