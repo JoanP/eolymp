@@ -134,8 +134,8 @@ namespace eolymp
 
 			public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
 			{
-				TimeSpan span = (TimeSpan)value;
-				return "Ritme: " + span.ToString ();
+				
+				return "Ritme: " + value.ToString();
 			}
 		}
 		public class distanciaConverter : IValueConverter
@@ -161,14 +161,14 @@ namespace eolymp
 
 			public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
 			{
-				TimeSpan span = (TimeSpan)value;
-				return "Temps: " + span.ToString ();
+				return "Temps: " +value.ToString ();
 			}
 		}
 		private StackLayout estructuraResultats() {
 			ListView l = new ListView (){ 
 				RowHeight = 70,
-				BackgroundColor = Color.Gray.WithLuminosity (0.8)
+				BackgroundColor = Color.Gray.WithLuminosity (0.8),
+				IsPullToRefreshEnabled = true
 			};
 			StackLayout sL = new StackLayout (){ Spacing = 20 };
 			StackLayout sl2 = new StackLayout () {
@@ -176,7 +176,7 @@ namespace eolymp
 				HeightRequest = 40,
 				BackgroundColor = Color.White
 			};
-				picker = new Picker () {
+			picker = new Picker () {
 				Title = "Esport",
 				Items = {"Running"},
 				VerticalOptions = LayoutOptions.Start,
@@ -184,12 +184,22 @@ namespace eolymp
 				BackgroundColor = Color.Gray.WithLuminosity (0.9),
 				WidthRequest = 100,
 			};
-				
+			Label infoL = new Label {
+				Text = "Selecciona l'esport: ",
+				VerticalOptions = LayoutOptions.Center,
+			};
+			sl2.Padding = new Thickness (10, 0, 0, 0);
+			sl2.Children.Add (infoL);
 			sl2.Children.Add(picker);
 			sL.Children.Add(sl2);
 			sL.Children.Add (l);
 			sL.Spacing = 5;
 			sL.BackgroundColor = Color.Gray.WithLuminosity (0.8);
+
+			l.Refreshing += (sender, e) => {
+				l.ItemsSource = aVM.getRunningMarques ();
+				l.EndRefresh();
+			};	
 				
 			l.ItemTapped += (sender, e) => {
 				var id = (e.Item as running).id;
@@ -211,7 +221,8 @@ namespace eolymp
 				aux.Add("tempsOficial",(e.Item as running).tempsOficial);
 				aux.Add("tempsReal",(e.Item as running).tempsReal);
 				aux.Add("h10",(e.Item as running).h10);
-				aux.Add("h59",(e.Item as running).h59);			
+				aux.Add("h59",(e.Item as running).h59);	
+				aux.Add("id",(e.Item as running).id);
 				l.SelectedItem = null;
 				aVM.getInfoMarcas (aux);
 
@@ -234,6 +245,7 @@ namespace eolymp
 			};
 			return(sL);
 		}
+	
 		/*public class addPage : ContentPage
 		{
 			public addPage (string type)

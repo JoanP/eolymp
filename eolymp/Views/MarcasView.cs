@@ -8,6 +8,7 @@ namespace eolymp
 	{
 		private StackLayout mainStackL;
 
+
 		public MarcasView (string name,Dictionary<string,object> info)
 		{
 			Title = name;
@@ -16,14 +17,17 @@ namespace eolymp
 			ToolbarItems.Add(new ToolbarItem {
 				Text = "Modifica",
 				Command = new Command(async o => {
-
+					((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new ModificarView(info));
 				}),
 			});
 			var picture = new Image () {
 				Aspect = Aspect.AspectFill,
-				HeightRequest = 150,
 				Source = ImageSource.FromFile("marcasmainfoto.jpg")
 			};
+			Device.OnPlatform (iOS: () => {
+				picture.HeightRequest = 150;
+			});
+
 			Grid structInfo = new Grid {
 				//HeightRequest = 70,
 				Padding = new Thickness(5,10,0,0),
@@ -70,24 +74,47 @@ namespace eolymp
 			Label h59 = new Label{ Text = "Hora km 5: "+info ["h59"].ToString()};
 
 			nom.FontAttributes = FontAttributes.Bold;
-			nom.FontSize = Device.GetNamedSize (NamedSize.Large, typeof(Label));
-			cat.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			dist.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			club.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			dor.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			hm.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			iniciCursa.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			iniciReal.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			k10.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			k59.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			mod.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			pos.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			posc.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			rit.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			tO.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			tR.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			h10.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
-			h59.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+			Device.OnPlatform (iOS: () => {
+				nom.FontSize = Device.GetNamedSize (NamedSize.Large, typeof(Label));
+				cat.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				dist.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				club.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				dor.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				hm.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				iniciCursa.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				iniciReal.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				k10.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				k59.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				mod.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				pos.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				posc.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				rit.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				tO.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				tR.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				h10.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+				h59.FontSize = Device.GetNamedSize (NamedSize.Micro, typeof(Label));
+			});
+			Device.OnPlatform (Android: () => {
+				nom.FontSize = Device.GetNamedSize (NamedSize.Large, typeof(Label));
+				cat.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				dist.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				club.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				dor.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				hm.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				iniciCursa.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				iniciReal.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				k10.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				k59.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				mod.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				pos.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				posc.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				rit.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				tO.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				tR.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				h10.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+				h59.FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label));
+			});
+
 
 
 

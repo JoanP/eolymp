@@ -197,6 +197,23 @@ namespace eolymp
 
 		public AfegirViewModel ()
 		{
+			_nomCursa = "";
+			_dorsal = "";
+			_posicio = "";
+			_distancia = "";
+			_posicioCategoria = "";
+			_categoria = "";
+			_club = "";
+			_iniciCursa = "";
+			_tempsReal = "";
+			_tempsOficial = "";
+			_iniciReal = "";
+			_horaMeta = "";
+			_ritme = "";
+			_km5 = "";
+			_horaKm5 = "";
+			_km10 = "";
+			_horaKm10 = "";
 		}
 		public ICommand Save {
 			get {

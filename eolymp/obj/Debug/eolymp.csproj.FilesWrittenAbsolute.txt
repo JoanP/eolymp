@@ -34,3 +34,5 @@
 /Users/gampi/Projects/github/eolymp/eolymp/bin/Debug/System.Net.Requests.dll
 /Users/gampi/Projects/github/eolymp/eolymp/bin/Debug/System.Net.NetworkInformation.dll
 /Users/gampi/Projects/github/eolymp/eolymp/bin/Debug/System.Text.RegularExpressions.dll
+/Users/gampi/Projects/github/eolymp/eolymp/bin/Debug/ImageCircle.Forms.Plugin.Abstractions.dll
+/Users/gampi/Projects/github/eolymp/eolymp/bin/Debug/SQLitePCL.raw.dll

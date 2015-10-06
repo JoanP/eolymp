@@ -13,14 +13,14 @@ namespace eolymp
 		private string _club;
 		private string _modalitat;
 		private TimeSpan _iniciCursa;
-		private TimeSpan _tempsReal;
-		private TimeSpan _tempsOficial;
+		private string _tempsReal;
+		private string _tempsOficial;
 		private TimeSpan _iniciReal;
 		private TimeSpan _horaMeta;
-		private TimeSpan _ritme;
-		private TimeSpan _k59;
+		private string _ritme;
+		private string _k59;
 		private TimeSpan _hk59;
-		private TimeSpan _k10;
+		private string _k10;
 		private TimeSpan _hk10;
 
 		public int dorsal {
@@ -47,19 +47,19 @@ namespace eolymp
 			set {_categoria = value;}
 		}
 
-		public TimeSpan tempsOficial {
+		public string tempsOficial {
 			get{return _tempsOficial; }
 			set { _tempsOficial = value; }
 		}
-		public TimeSpan ritme {
+		public string ritme {
 			get{return _ritme; }
 			set{ _ritme = value; }
 		}
-		public TimeSpan k59 {
+		public string k59 {
 			get {return _k59; }
 			set{ _k59 = value; }
 		}
-		public TimeSpan k10 {
+		public string k10 {
 			get{return _k10; }
 			set{ _k10 = value; }
 		}
@@ -86,7 +86,7 @@ namespace eolymp
 			set {_iniciCursa = value;}
 		}
 
-		public TimeSpan tempsReal {
+		public string tempsReal {
 			get {return _tempsReal;}
 			set {_tempsReal = value;}
 		}
@@ -119,14 +119,14 @@ namespace eolymp
 			_posicioCategoria = -1;
 			_club = "";
 			_iniciCursa = new TimeSpan(0,0,0);
-			_tempsReal = new TimeSpan(0,0,0); 
-			_tempsOficial = new TimeSpan(0,0,0);
+			_tempsReal = "00:00:00"; 
+			_tempsOficial = "00:00:00";
 			_iniciReal = new TimeSpan(0,0,0);
 			_horaMeta = new TimeSpan(0,0,0);
-			_ritme = new TimeSpan(0,0,0);
-			_k59 = new TimeSpan(0,0,0);
+			_ritme = "00:00:00";
+			_k59 = "00:00:00";
 			_hk59 = new TimeSpan(0,0,0);
-			_k10 = new TimeSpan(0,0,0);
+			_k10 = "00:00:00";
 			_hk10 = new TimeSpan(0,0,0);
 		}
 		public running (string ID){

@@ -26,9 +26,9 @@ namespace eolymp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Couchbase.Lite.Android.Resource.String.library_name = global::eolymp.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::eolymp.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::eolymp.Droid.Resource.String.Hello;
-			global::Couchbase.Lite.Android.Resource.String.library_name = global::eolymp.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -54,25 +54,46 @@ namespace eolymp.Droid
 			public const int bar24 = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int delete = 2130837506;
+			public const int conf = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int home24 = 2130837507;
+			public const int delete = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int icon = 2130837508;
+			public const int home = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int menu55 = 2130837509;
+			public const int home24 = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int refresh24 = 2130837510;
+			public const int icon = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int settings24 = 2130837511;
+			public const int marcasmainfoto = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int target21 = 2130837512;
+			public const int menu55 = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int perfil = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int podium = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int refresh24 = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int settings24 = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int social = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int stopwatch = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int target21 = 2130837519;
 			
 			static Drawable()
 			{
@@ -87,14 +108,14 @@ namespace eolymp.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030002
-			public const int ApplicationName = 2130903042;
-			
 			// aapt resource value: 0x7f030001
-			public const int Hello = 2130903041;
+			public const int ApplicationName = 2130903041;
 			
 			// aapt resource value: 0x7f030000
-			public const int library_name = 2130903040;
+			public const int Hello = 2130903040;
+			
+			// aapt resource value: 0x7f030002
+			public const int library_name = 2130903042;
 			
 			static String()
 			{

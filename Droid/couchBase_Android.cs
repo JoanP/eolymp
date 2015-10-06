@@ -20,14 +20,39 @@ namespace eolymp.Droid
 		public void crearDb ()
 		{
 			try {
-				db = Manager.SharedInstance.GetDatabase ("AndroidBD");
-
-			} catch (Exception e) {
-				Log.Error ("AndroidBD", "Error getting database", e);
-				return;
+				
+				db = Manager.SharedInstance.GetDatabase("iosdb");
+				//db.Delete();
+				var a = new Dictionary<string, object>{
+					{"nomCursa", "Cursa Peiro"},
+					{"dorsal", "9"},
+					{"posicio","9"},
+					{"distancia", "10"},
+					{"posicioCategoria","9"},
+					{"categoria", "Masculina"},
+					{"club", "Cap gros"},
+					{"iniciCursa","00:00:00"},
+					{"tempsReal", "00:00:00"},
+					{"tempsOficial", "00:00:00"},
+					{"iniciReal", "00:00:00"},
+					{"horaMeta", "00:00:00"},
+					{"ritme","00:00:00"},
+					{"km5","00:00:00"},
+					{"horaKm5","00:00:00"},
+					{"km10","00:00:00"},
+					{"horaKm10", "00:00:00"},
+					{"tipus", "running"},
+					{"esportista", "Didac"}
+				};
+				var b = crearDoc(a);
+				var c = db.DocumentCount;
+				Console.WriteLine ("num: " + c);
 			}
-
+			catch (Exception e){
+				Console.WriteLine ("{0}: Error getting database: {1}","CouchbaseEventsApp", e.Message);
+			}
 		}
+
 		public string crearDoc(Dictionary<string,object> d){
 			Document doc = db.CreateDocument ();
 			string docId = doc.Id;
@@ -35,31 +60,37 @@ namespace eolymp.Droid
 				doc.PutProperties(d);
 			}
 			catch (Exception e) {
-				Log.Error ("Error putting properties to Couchbase Lite database", e.Message);
+				Console.WriteLine ("Error putting properties to Couchbase Lite database", e.Message);
 			}
 			return docId;
 		}
-		public ObservableCollection<Dictionary<string, object>> recuperarDocs (string esport, string user){
-			Couchbase.Lite.View a = db.GetView ("running");
+
+		public ObservableCollection<Dictionary<string, string>> recuperarDocs (string esport, string user){
+			Couchbase.Lite.View a = db.GetView ("running2");
 			a.SetMap((document, emit) =>
 				{
 					if((string)document ["esportista"] == user && (string)document ["tipus"] == esport) {
 						emit ((string)document ["tipus"], document);
 					}
 				}, "1");
+			LogQueryResultsAsync (a);
 			return LogQueryResultsAsync (a);
+
 		}
 
-		private /*async*/ ObservableCollection<Dictionary<string, object>> LogQueryResultsAsync (Couchbase.Lite.View cbView)
+		private /*async*/ ObservableCollection<Dictionary<string, string>> LogQueryResultsAsync (Couchbase.Lite.View cbView)
 		{
 			var orderedQuery = cbView.CreateQuery ();
 			orderedQuery.Descending = true;
-			var llista = new ObservableCollection<Dictionary<string, object>> ();
+			var llista = new ObservableCollection<Dictionary<string, string>>();
 			try {
-				var results = /*await*/ orderedQuery.RunAsync ();
+				//var results = await orderedQuery.RunAsync ();
+				var results = orderedQuery.Run();
+				Console.WriteLine ("Found rows: {0}", 
+					results.Count);
 				results.ToList ().ForEach (result => {
 					var doc = result.Document;
-					var aux = new Dictionary<string, object>{
+					Dictionary<string, string> aux = new Dictionary<string, string>{
 						{"id", result.DocumentId},
 						{"nomCursa", doc.GetProperty<string>("nomCursa")},
 						{"dorsal", doc.GetProperty<string>("dorsal")},
@@ -82,40 +113,64 @@ namespace eolymp.Droid
 						{"esportista", doc.GetProperty<string>("esportista")}
 
 					};
+					Console.WriteLine ("Found document with id: {0}", 
+						result.DocumentId);
+					var c = db.DocumentCount;
+					Console.WriteLine ("num DESPUES DE QUERY: " + c);
 					llista.Add(aux);
 
+
 				});
-				return llista;
+				cbView.DeleteIndex ();
+				Console.WriteLine ("Num en la query: "+llista.Count);
+
 			} catch (CouchbaseLiteException e) {
 				Console.WriteLine ("Error querying view", e.Message);
 			}
+			return llista;
 		}
 
-		public void modificarDoc (string docId){
+		public void modificarDoc (string docId,Dictionary<string, object> info){
 			var doc = db.GetDocument (docId);
 			try {
 				// Update the document with more data
-				var updatedProps = new Dictionary<string, object> (doc.Properties);
-				updatedProps.Add ("eventDescription", "Everyone is invited!");
-				updatedProps.Add ("address", "123 Elm St.");
+				var updatedProps = doc.Properties;
+				updatedProps["nomCursa"] = info["nomCursa"].ToString();
+				updatedProps["dorsal"] = info["dorsal"].ToString();
+				updatedProps["posicio"] = info ["posicio"].ToString();
+				updatedProps["distancia"] = info["distancia"].ToString();
+				updatedProps["posicioCategoria"] = info["posicioCategoria"].ToString();
+				updatedProps["categoria"] = info["categoria"].ToString();
+				updatedProps["club"] = info["club"].ToString();
+				updatedProps["iniciCursa"] = info["iniciCursa"].ToString();
+				updatedProps["tempsReal"] = info["tempsReal"].ToString();
+				updatedProps["tempsOficial"] = info["tempsOficial"].ToString();
+				updatedProps["iniciReal"] = info["iniciReal"].ToString();
+				updatedProps["horaMeta"] = info["horaMeta"].ToString();
+				updatedProps["ritme"] = info["ritme"].ToString();
+				updatedProps["km5"] = info["km5"].ToString();
+				updatedProps["horaKm5"] = info["horaKm5"].ToString();
+				updatedProps["km10"] = info["km10"].ToString();
+				updatedProps["horaKm10"] = info["horaKm10"].ToString();
 				// Save to the Couchbase local Couchbase Lite DB
 				doc.PutProperties (updatedProps);
 				// display the updated document
-				//Log.Debug ("Updated Doc Properties:");
+				Console.WriteLine ("Updated Doc Properties:");
 			} catch (CouchbaseLiteException e) {
-				Log.Error ("Error updating properties in Couchbase Lite database", e.Message);
+				Console.WriteLine ("Error updating properties in Couchbase Lite database", e.Message);
 			}
-		
+
 		}
 		public void eliminarDoc(string docId){
 			try {
 				var doc = db.GetDocument (docId);
 				doc.Delete ();
+				var c = db.DocumentCount;
+				Console.WriteLine ("num: " + c);
 			} catch (CouchbaseLiteException e) {
-				Log.Error ("Cannot delete document", e.Message);
+				Console.WriteLine ("Cannot delete document", e.Message);
 			}
 		}
-
 
 
 	}

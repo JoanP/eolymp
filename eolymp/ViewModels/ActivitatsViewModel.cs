@@ -75,10 +75,10 @@ namespace eolymp
 							r.iniciCursa = stringTimeSpanConverter(kv.Value);
 							break;
 						case "tempsReal":
-							r.tempsReal = stringTimeSpanConverter (kv.Value);
+							r.tempsReal = kv.Value;
 							break;
 						case "tempsOficial":
-							r.tempsOficial = stringTimeSpanConverter (kv.Value);
+							r.tempsOficial = kv.Value;
 							break;
 						case "iniciReal":
 							r.iniciReal = stringTimeSpanConverter (kv.Value);
@@ -87,13 +87,19 @@ namespace eolymp
 							r.horaMeta = stringTimeSpanConverter (kv.Value);
 							break;
 						case "ritme":
-							r.ritme = stringTimeSpanConverter (kv.Value);
+							r.ritme = kv.Value;
 							break;
 						case "km5":
-							r.k59 = stringTimeSpanConverter (kv.Value);
+							r.k59 = kv.Value;
 							break;
 						case "km10":
-							r.k10 = stringTimeSpanConverter (kv.Value);
+							r.k10 = kv.Value;
+							break;
+						case "horaKm10":
+							r.h10 = stringTimeSpanConverter (kv.Value);
+							break;
+						case "horaKm5":
+							r.h59 = stringTimeSpanConverter (kv.Value);
 							break;
 
 					}

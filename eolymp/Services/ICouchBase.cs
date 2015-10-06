@@ -13,7 +13,7 @@ namespace eolymp
 		void crearDb ();
 		string crearDoc(Dictionary<string,object> d);
 		ObservableCollection<Dictionary<string, string>> recuperarDocs (string esport, string user);
-		void modificarDoc (string docId);
+		void modificarDoc (string docId,Dictionary<string, object> info);	
 		void eliminarDoc(string docId);
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -8,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Util;
+using Xamarin.Forms;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace eolymp.Droid
 {
@@ -18,6 +19,8 @@ namespace eolymp.Droid
 		{
 			base.OnCreate (bundle);
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+			ImageCircleRenderer.Init();
+			//DependencyService.Get<ICouchBase>().crearDb();
 			LoadApplication (new App ());
 		}
 	}

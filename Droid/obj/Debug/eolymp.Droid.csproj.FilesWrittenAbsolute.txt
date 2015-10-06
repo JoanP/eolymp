@@ -58,3 +58,13 @@
 /Users/gampi/Projects/github/eolymp/Droid/bin/Debug/Couchbase.Lite.dll
 /Users/gampi/Projects/github/eolymp/Droid/bin/Debug/SQLitePCL.raw.dll
 /Users/gampi/Projects/github/eolymp/Droid/bin/Debug/SqlitePCL.ugly.dll
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/conf.png
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/home.png
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/podium.png
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/social.png
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/stopwatch.png
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/marcasmainfoto.jpg
+/Users/gampi/Projects/github/eolymp/Droid/bin/Debug/ImageCircle.Forms.Plugin.Android.dll
+/Users/gampi/Projects/github/eolymp/Droid/bin/Debug/ImageCircle.Forms.Plugin.Abstractions.dll
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/perfil.jpg
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/MonoAndroid,Version=v5.1.AssemblyAttribute.cs

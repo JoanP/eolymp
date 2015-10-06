@@ -21,7 +21,6 @@ namespace eolymp.iOS
 		public void crearDb(){
 			try{
 				db = Manager.SharedInstance.GetDatabase ("iosdb");
-				//llista = new ObservableCollection<Dictionary<string, string>>();
 				//db.Delete();
 				var a = new Dictionary<string, object>{
 					{"nomCursa", "Cursa Peiro"},
@@ -129,13 +128,28 @@ namespace eolymp.iOS
 			return llista;
 		}
 
-		public void modificarDoc (string docId){
+		public void modificarDoc (string docId,Dictionary<string, object> info){
 			var doc = db.GetDocument (docId);
 			try {
 				// Update the document with more data
-				var updatedProps = new Dictionary<string, object> (doc.Properties);
-				updatedProps.Add ("eventDescription", "Everyone is invited!");
-				updatedProps.Add ("address", "123 Elm St.");
+				var updatedProps = doc.Properties;
+				updatedProps["nomCursa"] = info["nomCursa"].ToString();
+				updatedProps["dorsal"] = info["dorsal"].ToString();
+				updatedProps["posicio"] = info ["posicio"].ToString();
+				updatedProps["distancia"] = info["distancia"].ToString();
+				updatedProps["posicioCategoria"] = info["posicioCategoria"].ToString();
+				updatedProps["categoria"] = info["categoria"].ToString();
+				updatedProps["club"] = info["club"].ToString();
+				updatedProps["iniciCursa"] = info["iniciCursa"].ToString();
+				updatedProps["tempsReal"] = info["tempsReal"].ToString();
+				updatedProps["tempsOficial"] = info["tempsOficial"].ToString();
+				updatedProps["iniciReal"] = info["iniciReal"].ToString();
+				updatedProps["horaMeta"] = info["horaMeta"].ToString();
+				updatedProps["ritme"] = info["ritme"].ToString();
+				updatedProps["km5"] = info["km5"].ToString();
+				updatedProps["horaKm5"] = info["horaKm5"].ToString();
+				updatedProps["km10"] = info["km10"].ToString();
+				updatedProps["horaKm10"] = info["horaKm10"].ToString();
 				// Save to the Couchbase local Couchbase Lite DB
 				doc.PutProperties (updatedProps);
 				// display the updated document

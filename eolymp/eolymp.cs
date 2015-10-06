@@ -8,13 +8,11 @@ namespace eolymp
 	{
 		public App ()
 		{
-			DependencyService.Get<ICouchBase>().crearDb();
 			MainPage = new MainView ();
-	
+			DependencyService.Get<ICouchBase> ().crearDb ();
 		}
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
 		}
 
 		protected override void OnSleep ()

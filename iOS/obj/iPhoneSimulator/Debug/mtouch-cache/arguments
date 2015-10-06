@@ -1,6 +1,6 @@
-# Version: 8.10.2.37 (ef8c2f7)
+# Version: 9.0.1.20 (xcode7-c5: d8e9592)
 # [first argument, ignore] # /Users/gampi/Projects/github/eolymp/iOS/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/8.10.2.37/bin/mtouch \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/9.0.1.20/bin/mtouch \
 	--cache \
 	/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
@@ -26,25 +26,37 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.TestCloud.Agent.0.14.1/lib/Xamarin.iOS10/Calabash.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
-	-r \
 	/Users/gampi/Projects/github/eolymp/packages/Newtonsoft.Json.7.0.1/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.ugly.0.8.0/lib/portable-net45+netcore45+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLitePCL.ugly.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.TestCloud.Agent.0.16.2/lib/Xamarin.iOS10/Calabash.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/SharpZipLib.Portable.0.86.0.0002/lib/portable-net45+netcore45+wp8+win8+wpa81+MonoTouch+MonoAndroid/ICSharpCode.SharpZipLib.Portable.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.1.1.0.1/lib/Xamarin.iOS10/Couchbase.Lite.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.raw.0.8.0/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Xam.Plugins.Forms.ImageCircle.1.1.5/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Xam.Plugins.Forms.ImageCircle.1.1.5/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/SharpZipLib.Portable.0.86.0.0003/lib/portable-net45+netcore45+wp8+win8+wpa81+MonoTouch+MonoAndroid+Xamarin.iOS10/ICSharpCode.SharpZipLib.Portable.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Stateless.2.5.21.0/lib/portable-net40+sl50+win+wp80/Stateless.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.ugly.0.8.2/lib/portable-net45+netcore45+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLitePCL.ugly.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Jint.2.4.0/lib/portable-net40+sl50+win+wpa81+wp80/Jint.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.1.1.2.0/lib/Xamarin.iOS10/Couchbase.Lite.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.Listener.1.1.2.0/lib/xamarinios10/Couchbase.Lite.Listener.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.Listener.Bonjour.1.1.2.0/lib/Xamarin.iOS10/Couchbase.Lite.Listener.Bonjour.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.raw.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	-r \
@@ -67,6 +79,8 @@
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Diagnostics.Debug.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Diagnostics.Tools.dll \
+	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Diagnostics.Tracing.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Dynamic.Runtime.dll \
 	-r \
@@ -120,6 +134,8 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.ServiceModel.Primitives.dll \
 	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.ServiceModel.Security.dll \
+	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Text.Encoding.Extensions.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Text.Encoding.dll \
@@ -130,6 +146,8 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Threading.Tasks.dll \
 	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Threading.Timer.dll \
+	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Threading.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.ReaderWriter.dll \
@@ -138,25 +156,39 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XmlSerializer.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.TestCloud.Agent.0.14.1/lib/Xamarin.iOS10/Calabash.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
-	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.4.3.6374/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
-	-r \
 	/Users/gampi/Projects/github/eolymp/packages/Newtonsoft.Json.7.0.1/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.ugly.0.8.0/lib/portable-net45+netcore45+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLitePCL.ugly.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.TestCloud.Agent.0.16.2/lib/Xamarin.iOS10/Calabash.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/SharpZipLib.Portable.0.86.0.0002/lib/portable-net45+netcore45+wp8+win8+wpa81+MonoTouch+MonoAndroid/ICSharpCode.SharpZipLib.Portable.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.1.1.0.1/lib/Xamarin.iOS10/Couchbase.Lite.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
 	-r \
-	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.raw.0.8.0/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Xamarin.Forms.1.5.0.6447/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Xam.Plugins.Forms.ImageCircle.1.1.5/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Xam.Plugins.Forms.ImageCircle.1.1.5/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/SharpZipLib.Portable.0.86.0.0003/lib/portable-net45+netcore45+wp8+win8+wpa81+MonoTouch+MonoAndroid+Xamarin.iOS10/ICSharpCode.SharpZipLib.Portable.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Stateless.2.5.21.0/lib/portable-net40+sl50+win+wp80/Stateless.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.ugly.0.8.2/lib/portable-net45+netcore45+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLitePCL.ugly.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Jint.2.4.0/lib/portable-net40+sl50+win+wpa81+wp80/Jint.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.1.1.2.0/lib/Xamarin.iOS10/Couchbase.Lite.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.Listener.1.1.2.0/lib/xamarinios10/Couchbase.Lite.Listener.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/Couchbase.Lite.Listener.Bonjour.1.1.2.0/lib/Xamarin.iOS10/Couchbase.Lite.Listener.Bonjour.dll \
+	-r \
+	/Users/gampi/Projects/github/eolymp/packages/SQLitePCL.raw.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
 	-r \
 	/Users/gampi/Projects/github/eolymp/eolymp/bin/Debug/eolymp.dll \
+	--target-framework \
+	"Xamarin.iOS,v1.0" \
 	/Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug//eolymp.iOS.exe \

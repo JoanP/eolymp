@@ -80,16 +80,18 @@ public class MonoPackageManager {
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		"eolymp.Droid.dll",
-		"Xamarin.Forms.Platform.Android.dll",
-		"FormsViewGroup.dll",
-		"Xamarin.Forms.Core.dll",
-		"Xamarin.Forms.Xaml.dll",
-		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Android.Support.v4.dll",
 		"Newtonsoft.Json.dll",
 		"SQLitePCL.ugly.dll",
 		"ICSharpCode.SharpZipLib.Portable.dll",
 		"Couchbase.Lite.dll",
+		"Xamarin.Forms.Platform.Android.dll",
+		"FormsViewGroup.dll",
+		"Xamarin.Forms.Core.dll",
+		"Xamarin.Forms.Xaml.dll",
+		"Xamarin.Forms.Platform.dll",
+		"ImageCircle.Forms.Plugin.Android.dll",
+		"ImageCircle.Forms.Plugin.Abstractions.dll",
 		"SQLitePCL.raw.dll",
 		"eolymp.dll",
 		"System.Collections.Concurrent.dll",
@@ -141,5 +143,5 @@ class MonoPackageManager_Resources {
 	};
 	public static final String[] Dependencies = new String[]{
 	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_21";
+	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_22";
 }
