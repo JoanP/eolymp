@@ -14,7 +14,7 @@ namespace eolymp
 		{
 			mVM = new MainViewModel ();
 			Master = new menuPage (mVM);
-			Detail = new NavigationPage (new LinkPage("Inici"));
+			Detail = new NavigationPage (new IniciView());
 		}
 
 		public class menuPage : ContentPage
@@ -135,6 +135,7 @@ namespace eolymp
 				ItemTapped += (sender, e) => {
 					MenuPageItem tapped = SelectedItem as MenuPageItem;
 					if(tapped.Title =="Competeix") {/*App.MasterDetailPage.Detail*/((MasterDetailPage)App.Current.MainPage).Detail = new NavigationPage (new ActivitatsView());}
+					else if(tapped.Title == "Inici") {((MasterDetailPage)App.Current.MainPage).Detail = new NavigationPage (new IniciView());}
 					else {/*App.MasterDetailPage.Detail*/((MasterDetailPage)App.Current.MainPage).Detail = new NavigationPage (new LinkPage(tapped.Title));}
 					/*App.MasterDetailPage.IsPresented = false;*/
 					((MasterDetailPage)App.Current.MainPage).IsPresented = false;

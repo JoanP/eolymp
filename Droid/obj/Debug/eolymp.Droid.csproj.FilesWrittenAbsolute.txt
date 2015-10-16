@@ -68,3 +68,5 @@
 /Users/gampi/Projects/github/eolymp/Droid/bin/Debug/ImageCircle.Forms.Plugin.Abstractions.dll
 /Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/perfil.jpg
 /Users/gampi/Projects/github/eolymp/Droid/obj/Debug/MonoAndroid,Version=v5.1.AssemblyAttribute.cs
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/eolymp1.jpg
+/Users/gampi/Projects/github/eolymp/Droid/obj/Debug/res/drawable/footer.png

@@ -145,6 +145,8 @@
     <BundleResource Include="Resources\social.png" />
     <BundleResource Include="Resources\conf.png" />
     <BundleResource Include="Resources\perfil.jpg" />
+    <BundleResource Include="Resources\eolymp1.jpg" />
+    <BundleResource Include="Resources\footer.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

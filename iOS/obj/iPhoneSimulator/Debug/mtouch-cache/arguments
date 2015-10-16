@@ -1,6 +1,6 @@
-# Version: 9.0.1.20 (xcode7-c5: d8e9592)
+# Version: 9.0.1.29 (xcode7-c5: 1d27ac2)
 # [first argument, ignore] # /Users/gampi/Projects/github/eolymp/iOS/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/9.0.1.20/bin/mtouch \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/9.0.1.29/bin/mtouch \
 	--cache \
 	/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \

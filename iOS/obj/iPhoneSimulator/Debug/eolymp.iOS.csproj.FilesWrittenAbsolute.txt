@@ -121,3 +121,4 @@
 /Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/Jint.dll
 /Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/Couchbase.Lite.Listener.dll
 /Users/gampi/Projects/github/eolymp/iOS/bin/iPhoneSimulator/Debug/Couchbase.Lite.Listener.Bonjour.dll
+/Users/gampi/Projects/github/eolymp/iOS/obj/iPhoneSimulator/Debug/optimized/footer.png

@@ -23,28 +23,28 @@ namespace eolymp.Droid
 				
 				db = Manager.SharedInstance.GetDatabase("iosdb");
 				//db.Delete();
-				var a = new Dictionary<string, object>{
-					{"nomCursa", "Cursa Peiro"},
-					{"dorsal", "9"},
-					{"posicio","9"},
-					{"distancia", "10"},
-					{"posicioCategoria","9"},
+				/*var a = new Dictionary<string, object>{
+					{"nomCursa", "La rentrée Badalona"},
+					{"dorsal", "77"},
+					{"posicio","1"},
+					{"distancia", "5"},
+					{"posicioCategoria","1"},
 					{"categoria", "Masculina"},
-					{"club", "Cap gros"},
-					{"iniciCursa","00:00:00"},
-					{"tempsReal", "00:00:00"},
-					{"tempsOficial", "00:00:00"},
-					{"iniciReal", "00:00:00"},
-					{"horaMeta", "00:00:00"},
-					{"ritme","00:00:00"},
-					{"km5","00:00:00"},
-					{"horaKm5","00:00:00"},
-					{"km10","00:00:00"},
-					{"horaKm10", "00:00:00"},
+					{"club", "Fc Barcelona"},
+					{"iniciCursa","08:59:27"},
+					{"tempsReal", "00:17:45"},
+					{"tempsOficial", "00:17:47"},
+					{"iniciReal", "08:59:27"},
+					{"horaMeta", "09:29:51"},
+					{"ritme","00:03:33"},
+					{"km5","00:15:35"},
+					{"horaKm5","09:15:02"},
+					{"km10","00:30:24"},
+					{"horaKm10", "09:29:51"},
 					{"tipus", "running"},
 					{"esportista", "Didac"}
 				};
-				var b = crearDoc(a);
+				var b = crearDoc(a);*/
 				var c = db.DocumentCount;
 				Console.WriteLine ("num: " + c);
 			}

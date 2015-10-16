@@ -15,19 +15,6 @@ namespace eolymp
 		public ActivitatsViewModel ()
 		{
 			marques = new ObservableCollection<running>();
-			//marques.CollectionChanged += marcaCollectionChanged;
-			/*var a = new running ();
-			var b = new running ();
-			var c = new running ();
-			a.id = 1;
-			b.id = 2;
-			c.id = 3;
-			marques.Add (a);
-			marques.Add (b);
-			marques.Add (c);*/
-
-
-
 		}
 
 		public ObservableCollection<running> getMarques(){

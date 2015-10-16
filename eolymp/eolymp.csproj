@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="eolymp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\running.cs" />
     <Compile Include="Models\Usuari.cs" />
     <Compile Include="Models\MarcaEsportiva.cs" />
@@ -42,19 +41,41 @@
     <Compile Include="Views\MarcasView.cs" />
     <Compile Include="ViewModels\ActivitatsViewModel.cs" />
     <Compile Include="Services\ICouchBase.cs" />
-    <Compile Include="Views\MenuListView.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainView.cs" />
-    <Compile Include="MenuPageItem.cs" />
     <Compile Include="Views\AfegirView.cs" />
     <Compile Include="ViewModels\AfegirViewModel.cs" />
     <Compile Include="Views\ModificarView.cs" />
     <Compile Include="ViewModels\ModificarViewModel.cs" />
+    <Compile Include="Views\IniciView.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\MenuPageItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Content\video-js.css" />
+    <None Include="Content\video-js.less" />
+    <None Include="Content\video-js.min.css" />
+    <None Include="Content\video-js.swf" />
+    <None Include="fonts\vjs.eot" />
+    <None Include="fonts\vjs.svg" />
+    <None Include="fonts\vjs.ttf" />
+    <None Include="fonts\vjs.woff" />
+    <None Include="Scripts\video.dev.js" />
+    <None Include="Scripts\video.js" />
+    <None Include="Scripts\vjs-lang\de.js" />
+    <None Include="Scripts\vjs-lang\es.js" />
+    <None Include="Scripts\vjs-lang\fr.js" />
+    <None Include="Scripts\vjs-lang\it.js" />
+    <None Include="Scripts\vjs-lang\ja.js" />
+    <None Include="Scripts\vjs-lang\ko.js" />
+    <None Include="Scripts\vjs-lang\nl.js" />
+    <None Include="Scripts\vjs-lang\pt-BR.js" />
+    <None Include="Scripts\vjs-lang\ru.js" />
+    <None Include="Scripts\vjs-lang\uk.js" />
+    <None Include="Scripts\vjs-lang\zh.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

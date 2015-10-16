@@ -126,6 +126,8 @@
     <AndroidResource Include="Resources\drawable\stopwatch.png" />
     <AndroidResource Include="Resources\drawable\marcasmainfoto.jpg" />
     <AndroidResource Include="Resources\drawable\perfil.jpg" />
+    <AndroidResource Include="Resources\drawable\eolymp1.jpg" />
+    <AndroidResource Include="Resources\drawable\footer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw.0.8.0\build\MonoAndroid\SQLitePCL.raw.targets" Condition="Exists('..\packages\SQLitePCL.raw.0.8.0\build\MonoAndroid\SQLitePCL.raw.targets')" />

@@ -241,11 +241,6 @@ namespace eolymp
 					};
 					DependencyService.Get<ICouchBase>().crearDoc(a);
 					Debug.WriteLine("saved");
-
-
-
-
-
 				});
 			}
 		}

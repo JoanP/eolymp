@@ -1,12 +1,11 @@
-﻿<Properties StartupItem="Droid/eolymp.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.7.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/couchBase_IOS.cs">
+﻿<Properties StartupItem="iOS/eolymp.iOS.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5s.7.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="eolymp/Views/MenuPageItem.cs">
     <Files>
-      <File FileName="eolymp/Views/MainView.cs" Line="1" Column="1" />
-      <File FileName="eolymp/eolymp.cs" Line="1" Column="1" />
-      <File FileName="eolymp/Views/ActivitatsView.cs" Line="1" Column="1" />
-      <File FileName="eolymp/Services/ICouchBase.cs" Line="1" Column="1" />
-      <File FileName="iOS/couchBase_IOS.cs" Line="184" Column="36" />
+      <File FileName="eolymp/Views/IniciView.cs" Line="45" Column="42" />
+      <File FileName="eolymp/Views/MainView.cs" Line="42" Column="11" />
+      <File FileName="eolymp/Views/MarcasView.cs" Line="115" Column="26" />
+      <File FileName="eolymp/Views/MenuPageItem.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,12 +4,66 @@ namespace eolymp
 {
 	public class Usuari
 	{
-		private int id;
-		private string nom;
-		private string primerCognom;
-		private string segonCognom;
-		private string token;
-		private string correu;
+		private int _id;
+		private string _nom;
+		private string _primerCognom;
+		private string _segonCognom;
+		private string _token;
+		private string _correu;
+
+		public int id {
+			get {
+				return _id;
+			}
+			set {
+				_id = value;
+			}
+		}
+
+		public string nom {
+			get {
+				return _nom;
+			}
+			set {
+				_nom = value;
+			}
+		}
+
+		public string primerCognom {
+			get {
+				return _primerCognom;
+			}
+			set {
+				_primerCognom = value;
+			}
+		}
+
+		public string segonCognom {
+			get {
+				return _segonCognom;
+			}
+			set {
+				_segonCognom = value;
+			}
+		}
+
+		public string token {
+			get {
+				return _token;
+			}
+			set {
+				_token = value;
+			}
+		}
+
+		public string correu {
+			get {
+				return _correu;
+			}
+			set {
+				_correu = value;
+			}
+		}
 
 		public Usuari ()
 		{
@@ -21,7 +75,7 @@ namespace eolymp
 			correu = "";
 		}
 
-		public int getID (){
+		/*public int getID (){
 			return id;
 		}
 		public string getNom (){
@@ -57,7 +111,7 @@ namespace eolymp
 		}
 		public void setCorreu (string c){
 			correu = c;
-		}
+		}*/
 	}
 }
 

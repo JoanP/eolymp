@@ -236,11 +236,14 @@ namespace eolymp
 					l.ItemTemplate = new DataTemplate (typeof(marcaCell));
 				}
 			};
-			marcaCell.Remove += item => {
-				var id = (item as MenuItem).CommandParameter;
-				string id2 = id.ToString();
-				aVM.deleteMarcaDB(id2);
-				l.ItemsSource = aVM.getRunningMarques();
+			marcaCell.Remove += async item => {
+				var answer = await DisplayAlert ("Alerta", "Segur que voleu borrar la dada?", "Si", "No");
+				if(answer == true){
+					var id = (item as MenuItem).CommandParameter;
+					string id2 = id.ToString();
+					aVM.deleteMarcaDB(id2);
+					l.ItemsSource = aVM.getRunningMarques();
+				}
 
 			};
 			return(sL);
